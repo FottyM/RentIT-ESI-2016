@@ -1,0 +1,35 @@
+<ul class="nav nav-tabs nav-justified">
+    <li [ngClass]="{active: isQueryTabActive}"><a><span>1.</span>  Query Catalog</a></li>
+    <li [ngClass]="{active: isSelectionTabActive}"><a><span>2.</span>  Select Plant</a></li>
+    <li [ngClass]="{active: isReviewTabActive}"><a><span>3.</span>  Review PHR</a></li>
+</ul>
+
+<div class="col-xs-12" style="height:50px;"></div>
+<div class="tab-content">
+    
+    <div class="tab-pane" [ngClass]="{active: isQueryTabActive}">
+        <!-- ===========================
+             Query Component TAB-PANE
+             =========================== -->
+        <query-component (executeQueryEvent)='executeQuery($event)'></query-component>
+    </div>
+
+    <div id="selection-tab" class="tab-pane" [ngClass]="{active: isSelectionTabActive}">
+        <div>
+            <button class="btn btn-warning col-sm-3" (click)="backToQueryTab()"><span class="glyphicon glyphicon-chevron-left"></span> Query plant catalog again</button>
+            <span class="col-sm-6"></span>
+            <button class="btn btn-primary col-sm-3 disabled">Review plant hire request <span class="glyphicon glyphicon-chevron-right"></span></button>
+        </div>
+        <div class="col-xs-12" style="height:20px;"></div>
+        <!-- ===========================
+             Selection Component TAB-PANE
+             =========================== -->
+        <selection-component (selectPlantEvent)='selectPlant($event)'></selection-component>
+    </div>
+    <div id="review-tab" class="tab-pane" [ngClass]="{active: isReviewTabActive}">
+        <!-- ===========================
+             Overview Component TAB-PANE
+             =========================== -->
+        <overview-component [phr]="procurementService.phr"></overview-component>
+    </div>
+</div>    

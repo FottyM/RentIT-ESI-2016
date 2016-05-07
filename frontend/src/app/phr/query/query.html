@@ -1,0 +1,25 @@
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label for="name" class="col-sm-3 control-label">Name</label>
+            <div class="col-sm-7">
+                <input type="text" class="form-control" id="name" [(ngModel)]="query.name">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="rental-start-date" class="col-sm-3 control-label">Start date</label>
+            <div class="col-sm-7">
+                <input type="date" class="form-control" id="rental-start-date" [(ngModel)]="query.startDate">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="rental-end-date" class="col-sm-3 control-label">End date</label>
+            <div class="col-sm-7">
+                <input type="date" class="form-control" id="rental-end-date" [(ngModel)]="query.endDate">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-3">
+                <button id="submit-button" class="btn btn-primary btn-block" (click)="executeQuery()"><span class="glyphicon glyphicon-search"></span> Submit query</button>
+            </div>
+        </div>
+    </form>

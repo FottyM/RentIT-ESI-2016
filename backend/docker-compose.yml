@@ -1,0 +1,23 @@
+version: '2'
+
+services:
+  rentit:
+    image: isaac/rentitservice
+    ports:
+      - "8090:8090"
+    networks:
+      - my_network
+    environment:
+      POSTGRES: postgres
+      POSTGRES_USERNAME: postgres
+      POSTGRES_PASSWORD: mysecretword
+
+  postgres:
+    image: postgres
+    networks:
+      - my_network
+    environment:
+      POSTGRES_PASSWORD: mysecretword
+
+networks:
+  my_network:

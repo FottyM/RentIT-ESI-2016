@@ -1,0 +1,35 @@
+<form class="form-inline" role="form">
+    <div class="form-group col-sm-5">
+        <label for="site-address">Site address</label>
+        <input type="text" class="form-control" id="site-address">
+    </div>
+    <div class="form-group col-sm-5">
+        <label for="phr-total">Total</label>
+        <input type="text" class="form-control" id="phr-total" readonly>
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="createPHR()" >Create PHR</button>
+</form>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th class="text-center">Name</th>
+            <th class="text-center">Start Date</th>
+            <th class="text-center">End Date</th>
+            <th class="text-center">Price</th>
+            <th class="text-center">Subtotal</th>
+            <th class="text-center">Delete</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngIf="phr.plant">
+            <td>{{phr.plant.name}}</td>
+            <td>{{phr.rentalPeriod.startDate}}</td>
+            <td>{{phr.rentalPeriod.endDate}}</td>
+            <td class="text-right">{{phr.plant.price | number:'.2'}}</td>
+            <td class="text-right">{{phr.total | number: '.2'}}</td>
+            <td class="text-center"><button><span class="glyphicon glyphicon-remove"></span> Remove</button></td>
+
+        </tr>
+    </tbody>
+</table>

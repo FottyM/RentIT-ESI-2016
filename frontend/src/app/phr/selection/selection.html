@@ -1,0 +1,20 @@
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th class="text-center">Name</th>
+            <th class="text-center">Description</th>
+            <th class="text-center">Price</th>
+            <th class="text-center">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="#plant of catalog.plants">
+            <td>{{plant.name}}</td>
+            <td>{{plant.description}}</td>
+            <td class="text-right">{{plant.price | number:'.2'}}</td>
+            <td>
+            <form style ='float:center; padding:5px; height:0px' ><button class="btn btn-default btn-xs" (click)="selectPlant(plant)">Select plant <span class="glyphicon glyphicon-ok"></span></button></form>
+            </td>
+        </tr>
+    </tbody>
+</table>

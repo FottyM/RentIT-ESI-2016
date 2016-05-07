@@ -1,0 +1,21 @@
+To set up our apiary  that is going to mock our rentit and build it 
+
+docker run -ti --rm -v $PWD/rentit.md:/usr/src/app/api.md -p 3000:3000 ajnasz/api-mock
+
+
+To run buildit  frontend we need to run the following commands
+
+docker run -it -p 8000:8000 -v $PWD/esi-angular:/source/app mhart/alpine-node sh
+
+npm install -g gulp gulp-cli typings typescript ts-node concurrently lite-server
+
+
+ npm install --no-bin-links                             two times
+ npm run build
+ npm run start
+
+
+
+Bitbucket    git clone git@bitbucket.org:agabaisaacovic/homework7.git
+
+commit   49eb3e5

@@ -1,0 +1,5 @@
+Steps to run
+
+docker build -t isaac/rentitservice .
+
+docker-compose up
