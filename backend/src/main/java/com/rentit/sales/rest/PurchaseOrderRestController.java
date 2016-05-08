@@ -119,7 +119,6 @@ public class PurchaseOrderRestController {
     public PurchaseOrderDTO purchaseOrderCancel(@PathVariable Long oid) throws Exception {
 
         PurchaseOrderDTO poDTO = salesService.cancelPurchaseOrder(oid);
-
         return poDTO;
     }
 
