@@ -43,7 +43,7 @@ public class PurchaseOrderAssembler extends ResourceAssemblerSupport<PurchaseOrd
         } catch (PlantNotFoundException e) {
             throw new IllegalArgumentException(e.getMessage());
         }
-        dto.set_id(purchaseOrder.getId().getId());
+       // dto.set_id(purchaseOrder.getId().getId());
         dto.setRentalPeriod(BusinessPeriodDTO.of(purchaseOrder.getRentalPeriod().getStartDate(), purchaseOrder.getRentalPeriod().getEndDate()));
         dto.setTotal(purchaseOrder.getTotal());
         dto.setStatus(purchaseOrder.getStatus());

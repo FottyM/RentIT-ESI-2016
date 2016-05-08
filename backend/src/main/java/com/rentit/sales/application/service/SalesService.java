@@ -45,7 +45,7 @@ public class SalesService {
         PurchaseOrder po = PurchaseOrder.of(
                 identifierGenerator.nextPurchaseOrderID(),
                 plant.getId(),
-                BusinessPeriod.of(purchaseOrderDTO.getRentalPeriod().getStartDate(), purchaseOrderDTO.getRentalPeriod().getEndDate())
+                BusinessPeriod.of(purchaseOrderDTO.getRentalPeriod().getStartDate(), purchaseOrderDTO.getRentalPeriod().getEndDate()),purchaseOrderDTO.getEmail()
         );
 
         DataBinder binder = new DataBinder(po);
@@ -76,7 +76,7 @@ public class SalesService {
     }
 
     public PurchaseOrderDTO findPurchaseOrder(PurchaseOrderID id) {
-        return purchaseOrderAssembler.toResource(purchaseOrderRepository.findOne(id));
+       return purchaseOrderAssembler.toResource(purchaseOrderRepository.findOne(id));
     }
     public PurchaseOrderDTO confirmOrRejectPurchaseOrder(POStatus poStatus,long id) throws BindException, PlantNotFoundException {
 
@@ -91,9 +91,9 @@ public class SalesService {
 
 
 
-    public PurchaseOrderDTO reSubmitPurchaseOrder(long id) throws BindException, PlantNotFoundException {
+    public PurchaseOrderDTO reSubmitPurchaseOrder(long id,BusinessPeriod businessPeriod) throws BindException, PlantNotFoundException {
 
-        PurchaseOrder po = purchaseOrderRepository.resubmitOrderConfirmation(id);
+        PurchaseOrder po = purchaseOrderRepository.resubmitOrderConfirmation(id,businessPeriod);
 
         return purchaseOrderAssembler.toResource(po);
 
@@ -109,9 +109,6 @@ public class SalesService {
 
 
         PurchaseOrder po = purchaseOrderRepository.extendPurchaseOrder(id,businessPeriod);
-
-
-        System.out.println(purchaseOrderAssembler.toResource(po));
 
         return purchaseOrderAssembler.toResource(po);
 
@@ -141,12 +138,21 @@ public class SalesService {
 
 
     }
-    public List<PurchaseOrderDTO>findPurcahseOrders(){
+    public List<PurchaseOrderDTO>findPurcahseOrdersThatNeedInvoice(){
         List<PurchaseOrderDTO> purchaseOrderDTOs = new ArrayList<PurchaseOrderDTO>();
         for (PurchaseOrder purchaseOrder:purchaseOrderRepository.findOrdersThatNeedInvoice()
              ) {
                purchaseOrderDTOs.add(purchaseOrderAssembler.toResource( purchaseOrder));
             }
+
+        return purchaseOrderDTOs;
+    }
+    public List<PurchaseOrderDTO>findPurcahseOrders(){
+        List<PurchaseOrderDTO> purchaseOrderDTOs = new ArrayList<PurchaseOrderDTO>();
+        for (PurchaseOrder purchaseOrder:purchaseOrderRepository.findAll()
+                ) {
+            purchaseOrderDTOs.add(purchaseOrderAssembler.toResource( purchaseOrder));
+        }
 
         return purchaseOrderDTOs;
     }
@@ -166,6 +172,14 @@ public class SalesService {
     }
     public void remittanceReceived(Long purchaseOrderId){
        invoiceRepository.RemitanceAdviceRecieved(purchaseOrderId);
+
+    }
+    public PurchaseOrderDTO updatePurchaseOrder(Long id,POStatus status){
+        return  purchaseOrderAssembler.toResource(purchaseOrderRepository.updatePurchaseOrderStatus(id,status));
+
+    }
+    public PurchaseOrderDTO cancelPurchaseOrder(Long id){
+        return  purchaseOrderAssembler.toResource(purchaseOrderRepository.cancelPurchaseOrder(id));
 
     }
 }

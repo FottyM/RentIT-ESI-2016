@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.net.URI;
+import java.util.List;
 import java.util.Scanner;
 
 import static org.springframework.web.bind.annotation.RequestMethod.*;
@@ -28,16 +29,27 @@ import static org.springframework.web.bind.annotation.RequestMethod.*;
 public class PurchaseOrderRestController {
     @Autowired
     SalesService salesService;
+    @RequestMapping(method = GET, path = "")
+    public List<PurchaseOrderDTO> getPurchaseOrders(){
+        List<PurchaseOrderDTO> purchaseOrderDTO=salesService.findPurcahseOrders();
+        return purchaseOrderDTO;
+    }
+
+
+
+
 
     @RequestMapping(method = POST, path = "")
     public ResponseEntity<PurchaseOrderDTO> createPurchaseOrder(@RequestBody PurchaseOrderDTO poDTO) throws Exception {
-        Scanner in = new Scanner(poDTO.getLinks().get(0).getHref()).useDelimiter("[^0-9]+");
-        int id = in.nextInt();
+
+
+        String x =poDTO.getPlant().getLinks().get(0).getHref().toString();
+        int id = Integer.parseInt(x.replaceAll("[^0-9]", ""));
 
         poDTO = salesService.createPurchaseOrder(poDTO,Long.parseLong(id+""));
 
         HttpHeaders headers = new HttpHeaders();
-       // headers.setLocation(new URI(poDTO.getId().getHref));
+        headers.setLocation(new URI(poDTO.getId().getHref()));
         return new ResponseEntity<PurchaseOrderDTO>(poDTO, headers, HttpStatus.CREATED);
     }
 
@@ -61,8 +73,8 @@ public class PurchaseOrderRestController {
         return poDTO;
     }
     @RequestMapping(method = PUT, path = "/{id}")
-    public PurchaseOrderDTO reSubmitPurchaseOrder(@PathVariable Long id) throws Exception {
-        PurchaseOrderDTO poDTO = salesService.reSubmitPurchaseOrder(id);
+    public PurchaseOrderDTO reSubmitPurchaseOrder(@PathVariable Long id,@RequestBody BusinessPeriod businessPeriod) throws Exception {
+        PurchaseOrderDTO poDTO = salesService.reSubmitPurchaseOrder(id,businessPeriod);
         return poDTO;
     }
     @RequestMapping(method = DELETE, path = "/{id}")
@@ -94,6 +106,19 @@ public class PurchaseOrderRestController {
 
         PurchaseOrderDTO poDTO = salesService.confirmOrRejectPurchaseOrderExtension(POStatus.REJECTED,oid,eid);
 
+        return poDTO;
+    }
+    @RequestMapping(method = POST, path = "/{oid}/updatestatus")
+    public PurchaseOrderDTO purchaseOrderUpdateStatus(@PathVariable Long oid,@RequestBody POStatus poStatus) throws Exception {
+
+        PurchaseOrderDTO poDTO = salesService.updatePurchaseOrder(oid,poStatus);
+
+        return poDTO;
+    }
+    @RequestMapping(method = GET, path = "/{oid}/cancel")
+    public PurchaseOrderDTO purchaseOrderCancel(@PathVariable Long oid) throws Exception {
+
+        PurchaseOrderDTO poDTO = salesService.cancelPurchaseOrder(oid);
         return poDTO;
     }
 

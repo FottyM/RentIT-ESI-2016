@@ -46,12 +46,13 @@ public class PurchaseOrder {
     List<PurchaseOrderExtensionID> extensions = new ArrayList<>();
     String contactEmail;
 
-    public static PurchaseOrder of(PurchaseOrderID id, PlantInventoryEntryID plant, BusinessPeriod period) {
+    public static PurchaseOrder of(PurchaseOrderID id, PlantInventoryEntryID plant, BusinessPeriod period,String contactEmail) {
         PurchaseOrder po = new PurchaseOrder();
         po.id = id;
         po.plant = plant;
         po.rentalPeriod = period;
         po.status = POStatus.PENDING;
+        po.contactEmail=contactEmail;
         return po;
     }
 

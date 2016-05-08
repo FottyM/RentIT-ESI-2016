@@ -12,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -42,7 +43,11 @@ public class PlantInventoryEntryRestController {
         if (plantName.isPresent() && startDate.isPresent() && endDate.isPresent()) {
             if (endDate.get().isBefore(startDate.get()))
                 throw new IllegalArgumentException("Something wrong with the requested period ('endDate' happens before 'startDate')");
-            return inventoryService.findAvailablePlants(plantName.get(), startDate.get(), endDate.get());
+            List<PlantInventoryEntryDTO> plants = inventoryService.findAvailablePlants(plantName.get(), startDate.get(), endDate.get());
+
+
+
+            return plants;
         } else if (plantName.isPresent() && !startDate.isPresent() && !endDate.isPresent())
             return inventoryService.findPlantsByName(plantName.get());
         else if (!plantName.isPresent() && !startDate.isPresent() && !endDate.isPresent())
@@ -58,9 +63,12 @@ public class PlantInventoryEntryRestController {
     }
     @RequestMapping(method = POST, path = "/available/{id}")
     public Boolean checkIfPlantIsAvailable(@PathVariable Long id, @RequestBody BusinessPeriodDTO businessPeriodDTO) throws Exception {
+
+
+
                return inventoryService.checkIfPlantIsAvailable(id,businessPeriodDTO);
 
-        //TODO ADD IT 2 THE EXTENSIONS OF THE PLANT INVETORY
+
     }
 
 }
