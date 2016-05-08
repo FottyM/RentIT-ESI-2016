@@ -42,9 +42,9 @@ public class PurchaseOrderRepositoryImpl implements CustomPurchaseOrderRepositor
 
     @Override
     @Transactional
-    public PurchaseOrder resubmitOrderConfirmation(Long id) {
+    public PurchaseOrder resubmitOrderConfirmation(Long id,BusinessPeriod businessPeriod) {
         new JPAUpdateClause(em,qpurchaseOrder)
-                .set(qpurchaseOrder.status,POStatus.PENDING).where(qpurchaseOrder.id.id.eq(id).and(qpurchaseOrder.status.eq(POStatus.REJECTED))).execute();
+                .set(qpurchaseOrder.status,POStatus.PENDING).set(qpurchaseOrder.rentalPeriod,businessPeriod).where(qpurchaseOrder.id.id.eq(id).and(qpurchaseOrder.status.eq(POStatus.REJECTED))).execute();
 
         return new  JPAQuery(em)
                 .from(qpurchaseOrder)
@@ -97,6 +97,30 @@ public class PurchaseOrderRepositoryImpl implements CustomPurchaseOrderRepositor
         return new  JPAQuery(em)
                 .from(qpurchaseOrder)
                 .where(qpurchaseOrder.status.eq(POStatus.CLOSED)).distinct().list(qpurchaseOrder);
+    }
+
+    @Override
+    @Transactional
+    public PurchaseOrder updatePurchaseOrderStatus(Long id, POStatus poStatus) {
+        new JPAUpdateClause(em,qpurchaseOrder)
+                .set(qpurchaseOrder.status,poStatus).where(qpurchaseOrder.id.id.eq(id)).execute();
+
+        return new  JPAQuery(em)
+                .from(qpurchaseOrder)
+                .where(qpurchaseOrder.id.id.eq(id)).uniqueResult(qpurchaseOrder);
+
+    }
+
+    @Override
+    public PurchaseOrder cancelPurchaseOrder(Long id) {
+        POStatus poStatus= new JPAQuery(em).from(qpurchaseOrder).where(qpurchaseOrder.id.id.eq(id)).uniqueResult(qpurchaseOrder).getStatus();
+        if(poStatus!=POStatus.DELIVERED||poStatus!=POStatus.DISPATCHED){
+            new JPAUpdateClause(em,qpurchaseOrder)
+                    .set(qpurchaseOrder.status,POStatus.CANCELLED).where(qpurchaseOrder.id.id.eq(id)).execute();
+        }
+        return new  JPAQuery(em)
+                .from(qpurchaseOrder)
+                .where(qpurchaseOrder.id.id.eq(id)).uniqueResult(qpurchaseOrder);
     }
 
 

@@ -11,11 +11,15 @@ import java.util.List;
  */
 public interface CustomPurchaseOrderRepository  {
     public PurchaseOrder finalPurchaseOrderConfirmation(POStatus poStatus,Long id);
-    public PurchaseOrder resubmitOrderConfirmation(Long id);
+    public PurchaseOrder resubmitOrderConfirmation(Long id,BusinessPeriod businessPeriod);
     public PurchaseOrder extendPurchaseOrder(Long id, BusinessPeriod businessPeriod);
     public PurchaseOrder deletePurchaseOrder(Long id);
     public PurchaseOrder extendPurchaseOrderConfirmation(POStatus poStatus,Long oid, Long eid);
     public List<PurchaseOrder> findOrdersThatNeedInvoice();
+    public PurchaseOrder updatePurchaseOrderStatus(Long id,POStatus poStatus);
+    public PurchaseOrder cancelPurchaseOrder(Long id);
+
+
 
 }
 

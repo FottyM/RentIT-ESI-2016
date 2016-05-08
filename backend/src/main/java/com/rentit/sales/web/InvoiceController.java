@@ -37,7 +37,7 @@ public class InvoiceController {
     @RequestMapping(method = GET, path = "/orders")
     public String listOrders(Model model) {
 
-        List<PurchaseOrderDTO> purchaseOrderDTO=salesService.findPurcahseOrders();
+        List<PurchaseOrderDTO> purchaseOrderDTO=salesService.findPurcahseOrdersThatNeedInvoice();
 
 
         PurchaseOrderDTO po = new PurchaseOrderDTO();

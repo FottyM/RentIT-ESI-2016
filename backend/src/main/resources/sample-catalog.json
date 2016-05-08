@@ -28,7 +28,7 @@
   {"_class" : "com.rentit.inventory.domain.model.PlantInventoryItem", "id": 13, "serialNumber": "DMP-8.0-124", "condition": "SERVICEABLE", "plantInfo": {"id": 11}},
   {"_class" : "com.rentit.inventory.domain.model.PlantInventoryItem", "id": 14, "serialNumber": "LDR-5.0-123", "condition": "SERVICEABLE", "plantInfo": {"id": 12}},
   {"_class" : "com.rentit.inventory.domain.model.PlantInventoryItem", "id": 15, "serialNumber": "TRK-15.0-123", "condition": "SERVICEABLE", "plantInfo": {"id": 13}},
-  {"_class" : "com.rentit.inventory.domain.model.PlantInventoryItem", "id": 16, "serialNumber": "TRK-30.0-123", "condition": "SERVICEABLE", "plantInfo": {"id": 14}},
-
-  {"_class" : "com.rentit.sales.domain.model.PurchaseOrder", "id": 1, "plant":1, "rentalPeriod":{"startDate":"2016-03-14","endDate":"2016-03-14"},"status":"CLOSED","contactEmail":"agabaisaacsoftwares@gmail.com","total": 1000}
+  {"_class" : "com.rentit.inventory.domain.model.PlantInventoryItem", "id": 16, "serialNumber": "TRK-30.0-123", "condition": "SERVICEABLE", "plantInfo": {"id": 14}}
+  ,{"_class" : "com.rentit.sales.domain.model.PurchaseOrder", "id": 1, "plant":1, "rentalPeriod":{"startDate":"2016-05-08","endDate":"2016-05-14"},"status":"PENDING","contactEmail":"agabaisaacsoftwares@gmail.com","total": 1000},
+  {"_class" : "com.rentit.sales.domain.model.PurchaseOrder", "id": 2, "plant":2, "rentalPeriod":{"startDate":"2016-03-08","endDate":"2016-05-14"},"status":"PENDING","contactEmail":"agabaisaacsoftwares@gmail.com","total": 1000}
 ]

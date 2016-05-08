@@ -16,7 +16,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor(force = true)
 public class PurchaseOrderDTO extends ResourceSupport {
-    Long _id;
+  //  Long _id;
     PlantInventoryEntryDTO plant;
     BusinessPeriodDTO rentalPeriod;
     BigDecimal total;

@@ -87,6 +87,7 @@ public class PurchaseOrderRestControllerTests {
         PurchaseOrderDTO order = new PurchaseOrderDTO();
         order.setPlant(plants.get(2));
         order.setRentalPeriod(BusinessPeriodDTO.of(LocalDate.now(), LocalDate.now()));
+        order.setEmail("akaizat1@gmail.com");
 
 
         result = mockMvc.perform(post("/api/sales/orders")

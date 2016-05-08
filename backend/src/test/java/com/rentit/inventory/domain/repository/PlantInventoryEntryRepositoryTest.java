@@ -2,6 +2,7 @@ package com.rentit.inventory.domain.repository;
 
 import com.rentit.RentitRefApplication;
 import com.rentit.common.domain.model.BusinessPeriod;
+import com.rentit.inventory.application.service.InventoryService;
 import com.rentit.inventory.domain.model.*;
 import com.rentit.inventory.infrastructure.idgeneration.InventoryIdentifierGenerator;
 import org.apache.commons.lang3.tuple.Pair;
@@ -34,6 +35,8 @@ public class PlantInventoryEntryRepositoryTest {
     InventoryRepository inventoryRepository;
     @Autowired
     InventoryIdentifierGenerator inventoryIdentifierGenerator;
+    @Autowired
+    InventoryService inventoryService;
 
     @Test
     @Sql("plants-dataset.sql")
@@ -71,5 +74,7 @@ public class PlantInventoryEntryRepositoryTest {
 
         assertThat(plantRepo.count(plantNameContains("Mini").and(entryHasAvailableItemFor(BusinessPeriod.of(LocalDate.now(), LocalDate.now().plusDays(4)), EquipmentCondition.SERVICEABLE))))
             .isEqualTo(1l);
+
+
     }
 }
