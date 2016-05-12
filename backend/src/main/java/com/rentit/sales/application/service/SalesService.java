@@ -2,6 +2,7 @@ package com.rentit.sales.application.service;
 
 import com.rentit.common.application.dto.BusinessPeriodDTO;
 import com.rentit.common.domain.model.BusinessPeriod;
+import com.rentit.common.domain.model.UserType;
 import com.rentit.common.domain.validation.BusinessPeriodValidator;
 import com.rentit.inventory.application.dto.PlantReservationDTO;
 import com.rentit.inventory.application.service.InventoryService;
@@ -15,6 +16,7 @@ import com.rentit.sales.domain.model.POStatus;
 import com.rentit.sales.domain.model.PurchaseOrder;
 import com.rentit.sales.domain.model.PurchaseOrderID;
 import com.rentit.sales.domain.repository.InvoiceRepository;
+import com.rentit.sales.domain.repository.PurchaseOrderExtensionRepository;
 import com.rentit.sales.domain.repository.PurchaseOrderRepository;
 import com.rentit.sales.domain.validation.ContactPersonValidator;
 import com.rentit.sales.domain.validation.PurchaseOrderValidator;
@@ -39,7 +41,8 @@ public class SalesService {
     SalesIdentifierGenerator identifierGenerator;
     @Autowired
     InvoiceRepository invoiceRepository;
-
+    @Autowired
+    PurchaseOrderExtensionRepository purchaseOrderExtensionRepository;
     public PurchaseOrderDTO createPurchaseOrder(PurchaseOrderDTO purchaseOrderDTO,Long id) throws BindException, PlantNotFoundException {
         PlantInventoryEntry plant = inventoryService.findPlant(id);
         PurchaseOrder po = PurchaseOrder.of(
@@ -142,15 +145,17 @@ public class SalesService {
         List<PurchaseOrderDTO> purchaseOrderDTOs = new ArrayList<PurchaseOrderDTO>();
         for (PurchaseOrder purchaseOrder:purchaseOrderRepository.findOrdersThatNeedInvoice()
              ) {
+            purchaseOrderAssembler.setUserType(UserType.RENTIT);
                purchaseOrderDTOs.add(purchaseOrderAssembler.toResource( purchaseOrder));
             }
 
         return purchaseOrderDTOs;
     }
-    public List<PurchaseOrderDTO>findPurcahseOrders(){
+    public List<PurchaseOrderDTO>findPurcahseOrders(UserType userType){
         List<PurchaseOrderDTO> purchaseOrderDTOs = new ArrayList<PurchaseOrderDTO>();
         for (PurchaseOrder purchaseOrder:purchaseOrderRepository.findAll()
                 ) {
+            purchaseOrderAssembler.setUserType(userType);
             purchaseOrderDTOs.add(purchaseOrderAssembler.toResource( purchaseOrder));
         }
 
@@ -181,5 +186,8 @@ public class SalesService {
     public PurchaseOrderDTO cancelPurchaseOrder(Long id){
         return  purchaseOrderAssembler.toResource(purchaseOrderRepository.cancelPurchaseOrder(id));
 
+    }
+    public Long getLastExtensionId(PurchaseOrderID purchaseOrderID){
+        return purchaseOrderExtensionRepository.getLastExtension(purchaseOrderID);
     }
 }

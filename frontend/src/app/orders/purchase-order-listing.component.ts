@@ -1,7 +1,7 @@
 import {Component} from 'angular2/core';
 
 import {Http} from 'angular2/http';
-import {PlantCatalogService} from "../phr/catalog.service";
+import {PlantCatalogService} from "../po/catalog.service";
 class Plant {
     name: string;
     description: string;
@@ -18,6 +18,11 @@ export class XLink {
     href: string;
     method: string;
 }
+export class Invoice {
+    poId: number;
+    email: string;
+    total: number;
+}
 
 class PurchaseOrder {
     plant: Plant;
@@ -33,11 +38,22 @@ class PurchaseOrder {
 export class POListingComponent {
     orders: PurchaseOrder[];
     constructor (public http:Http,public catalog: PlantCatalogService) {
-        this.http.get("http://192.168.99.100:3000/api/sales/orders")
+        this.http.get("http://localhost:8090/api/sales/rentit/orders")
             .subscribe(resp => this.orders = resp.json());
+
+
+    }
+
+    cleaner(data){
+       //// if(data.)
+
+
+
     }
     follow(link: XLink) {
 
+
+        console.log(link);
         this.catalog.executeExtensionQuery(link)
 
        

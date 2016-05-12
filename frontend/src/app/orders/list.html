@@ -5,6 +5,7 @@
             <th class="text-center">Start date</th>
             <th class="text-center">End date</th>
             <th class="text-center">Total</th>
+            <th class="text-center">Status</th>
             <th class="text-center">Actions</th>
         </tr>
     </thead>
@@ -19,10 +20,11 @@
             <td>{{order.rentalPeriod.startDate}}</td>
             <td>{{order.rentalPeriod.endDate}}</td>
             <td class='text-right'>{{order.total | number:'.2'}}</td>
+            <td>{{order.status}}</td>
             <td class='text-center'>
                 <button class="btn btn-xs" *ngFor="#link of order._xlinks" 
                     [ngClass]="{'btn-success':link.method=='POST', 
-                                'btn-danger':link.method=='DELETE'}"
+                                'btn-danger':link.method=='DELETE','btn-primary':link.method=='GET'}"
                     (click)="follow(link)">
                 {{link._rel}}
                 </button>

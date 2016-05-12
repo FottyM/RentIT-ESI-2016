@@ -5,26 +5,26 @@
             <th class="text-center">Start date</th>
             <th class="text-center">End date</th>
             <th class="text-center">Total</th>
+            <th class="text-center">email</th>
             <th class="text-center">Actions</th>
+
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="#order of orders" id="{{order._xlinks[0].href.split('/')[5]}}">
+        <tr *ngFor="#order of orders">
             <td>
                 {{order.plant.name}}
-                <button>
-                Inspect plant
-                </button>
+
             </td>
+
             <td>{{order.rentalPeriod.startDate}}</td>
             <td>{{order.rentalPeriod.endDate}}</td>
             <td class='text-right'>{{order.total | number:'.2'}}</td>
+            <td class='text-left'>{{order.email}}</td>
             <td class='text-center'>
-                <button class="btn btn-xs" *ngFor="#link of order._xlinks" 
-                    [ngClass]="{'btn-success':link.method=='POST', 
-                                'btn-danger':link.method=='DELETE'}"
-                    (click)="follow(link)">
-                {{link._rel}}
+
+                <button ngClass="btn-primary" (click)="follow({'poId':order._links.self.href.slice(-1),'email':order.email,'total':order.total})">
+                   Send Invoice
                 </button>
             </td>
         </tr>

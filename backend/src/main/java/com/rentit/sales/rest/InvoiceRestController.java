@@ -1,17 +1,19 @@
-package com.rentit.sales.web;
+package com.rentit.sales.rest;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.rentit.sales.application.dto.InvoiceEmailDTO;
 import com.rentit.sales.application.dto.PurchaseOrderDTO;
 import com.rentit.sales.application.service.InvoiceGateway;
 import com.rentit.sales.application.service.SalesService;
+import com.rentit.sales.application.dto.InvoiceEmailDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.mail.internet.MimeMessage;
 import javax.mail.util.ByteArrayDataSource;
@@ -20,9 +22,12 @@ import java.util.List;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
-@Controller
-@RequestMapping("/invoice")
-public class InvoiceController {
+
+
+@RestController
+@RequestMapping("/api/rentit/invoice")
+@CrossOrigin
+public class InvoiceRestController {
     @Autowired
     InvoiceGateway invoiceGateway;
     @Autowired
@@ -32,19 +37,16 @@ public class InvoiceController {
 
 
     @RequestMapping(method = GET, path = "/orders")
-    public String listOrders(Model model) {
+    public  List<PurchaseOrderDTO>  listOrders(Model model) {
 
         List<PurchaseOrderDTO> purchaseOrderDTO=salesService.findPurcahseOrdersThatNeedInvoice();
 
 
-        PurchaseOrderDTO po = new PurchaseOrderDTO();
-        model.addAttribute("purchaseOrders",purchaseOrderDTO);
-        model.addAttribute("invoiceEmailDTO", new InvoiceEmailDTO());
-        return "dashboard/invoice/list";
+       return purchaseOrderDTO;
     }
     @RequestMapping(method = POST, path = "/sendInvoice")
-    public String sendInvoice(InvoiceEmailDTO po) throws Exception {
 
+    public String sendInvoice(@RequestBody InvoiceEmailDTO po) throws Exception {
 
         JavaMailSender mailSender = new JavaMailSenderImpl();
         String invoice1 =
@@ -62,8 +64,8 @@ public class InvoiceController {
         helper.setText("Dear customer,\n\nPlease find attached the Invoice corresponding to your Purchase Order "+po.getPoId()+".\n\nKindly yours,\n\nRentIt Team!");
 
         helper.addAttachment("invoice-po-"+po.getPoId()+".xml", new ByteArrayDataSource(invoice1, "application/xml"));
-         invoiceGateway.sendInvoice(rootMessage);
-        return "dashboard/invoice/invoice";
+        invoiceGateway.sendInvoice(rootMessage);
+        return "sent";
     }
 
 }

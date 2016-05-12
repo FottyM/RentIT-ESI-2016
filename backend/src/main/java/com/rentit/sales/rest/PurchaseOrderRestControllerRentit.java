@@ -21,29 +21,15 @@ import java.util.Scanner;
 import static org.springframework.web.bind.annotation.RequestMethod.*;
 
 @RestController
-@RequestMapping("/api/sales/orders")
+@RequestMapping("/api/sales/rentit/orders")
 @CrossOrigin
-public class PurchaseOrderRestController {
+public class PurchaseOrderRestControllerRentit {
     @Autowired
     SalesService salesService;
     @RequestMapping(method = GET, path = "")
     public List<PurchaseOrderDTO> getPurchaseOrders(){
-        List<PurchaseOrderDTO> purchaseOrderDTO=salesService.findPurcahseOrders(UserType.BUILDIT);
+        List<PurchaseOrderDTO> purchaseOrderDTO=salesService.findPurcahseOrders(UserType.RENTIT);
         return purchaseOrderDTO;
-    }
-
-    @RequestMapping(method = POST, path = "")
-    public ResponseEntity<PurchaseOrderDTO> createPurchaseOrder(@RequestBody PurchaseOrderDTO poDTO) throws Exception {
-
-
-        String x =poDTO.getPlant().getLinks().get(0).getHref().toString();
-        int id = Integer.parseInt(x.replaceAll("[^0-9]", ""));
-
-        poDTO = salesService.createPurchaseOrder(poDTO,Long.parseLong(id+""));
-
-        HttpHeaders headers = new HttpHeaders();
-        headers.setLocation(new URI(poDTO.getId().getHref()));
-        return new ResponseEntity<PurchaseOrderDTO>(poDTO, headers, HttpStatus.CREATED);
     }
 
     @RequestMapping(method = GET, path = "/{id}")
@@ -65,26 +51,11 @@ public class PurchaseOrderRestController {
 
         return poDTO;
     }
-    @RequestMapping(method = PUT, path = "/{id}")
-    public PurchaseOrderDTO reSubmitPurchaseOrder(@PathVariable Long id,@RequestBody BusinessPeriod businessPeriod) throws Exception {
-        PurchaseOrderDTO poDTO = salesService.reSubmitPurchaseOrder(id,businessPeriod);
-        return poDTO;
-    }
+
     @RequestMapping(method = DELETE, path = "/{id}")
     public PurchaseOrderDTO deletePurchaseOrder(@PathVariable Long id) throws Exception {
         PurchaseOrderDTO poDTO = salesService.DeletePurchaseOrder(id);
         return poDTO;
-    }
-    @RequestMapping(method = POST, path = "/{id}/extensions")
-    public  ResponseEntity<PurchaseOrderDTO> extendPurchaseOrder(@PathVariable Long id, @RequestBody BusinessPeriodDTO businessPeriod) throws Exception {
-
-
-        PurchaseOrderDTO poDTO = salesService.extendPurchaseOrder(id,businessPeriod);
-
-
-        HttpHeaders headers = new HttpHeaders();
-       // headers.setLocation(new URI("/"+poDTO.getId()));
-        return new ResponseEntity<PurchaseOrderDTO>(poDTO, headers, HttpStatus.CREATED);
     }
 
     @RequestMapping(method = POST, path = "/{oid}/extensions/{eid}/accept")
@@ -103,7 +74,7 @@ public class PurchaseOrderRestController {
     }
     @RequestMapping(method = POST, path = "/{oid}/updatestatus")
     public PurchaseOrderDTO purchaseOrderUpdateStatus(@PathVariable Long oid,@RequestBody POStatus poStatus) throws Exception {
-        System.out.println(poStatus);
+
         PurchaseOrderDTO poDTO = salesService.updatePurchaseOrder(oid,poStatus);
 
         return poDTO;
