@@ -46,7 +46,8 @@ public class PlantInventoryEntryAssembler extends ResourceAssemblerSupport<Plant
         dto.setName(plantInventoryEntry.getName());
         dto.setDescription(plantInventoryEntry.getDescription());
         dto.setPrice(plantInventoryEntry.getPrice());
-        dto.setXlinks(dto.getLinks());
+       // dto.setXlinks(dto.getLinks());
+        dto.set_links(dto.getLinks());
          return dto;
     }
 

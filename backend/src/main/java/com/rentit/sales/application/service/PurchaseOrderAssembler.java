@@ -121,10 +121,10 @@ public class PurchaseOrderAssembler extends ResourceAssemblerSupport<PurchaseOrd
                 case REJECTED:
 
 
-                    dto.add(new ExtendedLink(
-                            linkTo(methodOn(PurchaseOrderRestController.class)
-                                    .reSubmitPurchaseOrder(purchaseOrder.getId().getId(),null)).toString(),
-                            "resubmit", PUT));
+//                    dto.add(new ExtendedLink(
+//                            linkTo(methodOn(PurchaseOrderRestController.class)
+//                                    .reSubmitPurchaseOrder(null,null)).toString(),
+//                            "resubmit", PUT));
 
                     break;
 //                case CLOSED:

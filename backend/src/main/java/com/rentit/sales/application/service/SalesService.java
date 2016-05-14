@@ -79,7 +79,18 @@ public class SalesService {
     }
 
     public PurchaseOrderDTO findPurchaseOrder(PurchaseOrderID id) {
-       return purchaseOrderAssembler.toResource(purchaseOrderRepository.findOne(id));
+
+        PurchaseOrder purchaseOrder = purchaseOrderRepository.findOne(id);
+        System.out.println(purchaseOrder);
+           if(purchaseOrder==null){
+
+            return  new PurchaseOrderDTO();
+        }
+        else {
+               return purchaseOrderAssembler.toResource(purchaseOrderRepository.findOne(id));
+           }
+
+
     }
     public PurchaseOrderDTO confirmOrRejectPurchaseOrder(POStatus poStatus,long id) throws BindException, PlantNotFoundException {
 

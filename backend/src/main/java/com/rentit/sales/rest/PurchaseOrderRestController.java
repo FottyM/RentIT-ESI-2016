@@ -3,6 +3,7 @@ package com.rentit.sales.rest;
 import com.rentit.common.application.dto.BusinessPeriodDTO;
 import com.rentit.common.domain.model.BusinessPeriod;
 import com.rentit.common.domain.model.UserType;
+import com.rentit.inventory.application.dto.PlantInventoryEntryDTO;
 import com.rentit.sales.application.dto.PurchaseOrderDTO;
 import com.rentit.sales.application.service.SalesService;
 import com.rentit.sales.domain.model.POStatus;
@@ -36,11 +37,9 @@ public class PurchaseOrderRestController {
     public ResponseEntity<PurchaseOrderDTO> createPurchaseOrder(@RequestBody PurchaseOrderDTO poDTO) throws Exception {
 
 
-        String x =poDTO.getPlant().getLinks().get(0).getHref().toString();
+        String x =poDTO.getPlant().get_links().get(0).getHref().toString();
         int id = Integer.parseInt(x.replaceAll("[^0-9]", ""));
-
         poDTO = salesService.createPurchaseOrder(poDTO,Long.parseLong(id+""));
-
         HttpHeaders headers = new HttpHeaders();
         headers.setLocation(new URI(poDTO.getId().getHref()));
         return new ResponseEntity<PurchaseOrderDTO>(poDTO, headers, HttpStatus.CREATED);
@@ -60,13 +59,13 @@ public class PurchaseOrderRestController {
 
     @RequestMapping(method = DELETE, path = "/{id}/accept")
     public PurchaseOrderDTO rejectPurchaseOrder(@PathVariable Long id) throws Exception {
-
         PurchaseOrderDTO poDTO = salesService.confirmOrRejectPurchaseOrder(POStatus.REJECTED,id);
-
         return poDTO;
     }
     @RequestMapping(method = PUT, path = "/{id}")
-    public PurchaseOrderDTO reSubmitPurchaseOrder(@PathVariable Long id,@RequestBody BusinessPeriod businessPeriod) throws Exception {
+    public PurchaseOrderDTO reSubmitPurchaseOrder(@RequestBody PlantInventoryEntryDTO plantInventoryEntryDTO, @RequestBody BusinessPeriod businessPeriod) throws Exception {
+        String x =plantInventoryEntryDTO.get_links().get(0).getHref().toString();
+        int id = Integer.parseInt(x.replaceAll("[^0-9]", ""));
         PurchaseOrderDTO poDTO = salesService.reSubmitPurchaseOrder(id,businessPeriod);
         return poDTO;
     }
@@ -80,7 +79,6 @@ public class PurchaseOrderRestController {
 
 
         PurchaseOrderDTO poDTO = salesService.extendPurchaseOrder(id,businessPeriod);
-
 
         HttpHeaders headers = new HttpHeaders();
        // headers.setLocation(new URI("/"+poDTO.getId()));
@@ -108,10 +106,10 @@ public class PurchaseOrderRestController {
 
         return poDTO;
     }
-    @RequestMapping(method = GET, path = "/{oid}/cancel")
-    public PurchaseOrderDTO purchaseOrderCancel(@PathVariable Long oid) throws Exception {
+    @RequestMapping(method = DELETE, path = "/{id}/cancel")
+    public PurchaseOrderDTO purchaseOrderCancel(@PathVariable Long id) throws Exception {
 
-        PurchaseOrderDTO poDTO = salesService.cancelPurchaseOrder(oid);
+        PurchaseOrderDTO poDTO = salesService.cancelPurchaseOrder(id);
         return poDTO;
     }
 
