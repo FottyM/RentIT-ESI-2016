@@ -1,4 +1,4 @@
-package com.rentit.sales.web;
+package com.rentit.sales.application.dto;
 
 import lombok.Data;
 

@@ -67,4 +67,8 @@ public class PurchaseOrder {
         extensions.add(extension);
 
     }
+    public void setStatus(POStatus status) {
+        this.status=status;
+
+    }
 }

@@ -62,6 +62,7 @@ public class PurchaseOrderRepositoryImpl implements CustomPurchaseOrderRepositor
                   .from(qpurchaseOrder)
                   .where(qpurchaseOrder.id.id.eq(id)).uniqueResult(qpurchaseOrder);
            purchaseOrder.addExtension(v.getId());
+            purchaseOrder.setStatus(POStatus.PENDING_EXTENSION);
            purchaseOrderRepository.save(purchaseOrder);
 
 
@@ -84,10 +85,17 @@ public class PurchaseOrderRepositoryImpl implements CustomPurchaseOrderRepositor
     @Override
     @Transactional
     public PurchaseOrder extendPurchaseOrderConfirmation(POStatus poStatus,Long oid, Long eid) {
-        new JPAUpdateClause(em,qPurchaseOrderExtension)
-                .set(qPurchaseOrderExtension.status,poStatus).where(qPurchaseOrderExtension.id.id.eq(eid).and(qPurchaseOrderExtension.purchaseOrder.id.eq(oid))).execute();
 
-        return new  JPAQuery(em)
+        POStatus status = new  JPAQuery(em)
+                .from(qpurchaseOrder)
+                .where(qpurchaseOrder.id.id.eq(oid)).uniqueResult(qpurchaseOrder).getStatus();
+
+         if(status.equals(POStatus.PENDING_EXTENSION)){
+             new JPAUpdateClause(em,qPurchaseOrderExtension)
+                     .set(qPurchaseOrderExtension.status,poStatus).where(qPurchaseOrderExtension.id.id.eq(eid).and(qPurchaseOrderExtension.purchaseOrder.id.eq(oid))).execute();
+
+         }
+               return new  JPAQuery(em)
                 .from(qpurchaseOrder)
                 .where(qpurchaseOrder.id.id.eq(oid)).uniqueResult(qpurchaseOrder);
     }
@@ -112,7 +120,9 @@ public class PurchaseOrderRepositoryImpl implements CustomPurchaseOrderRepositor
     }
 
     @Override
+    @Transactional
     public PurchaseOrder cancelPurchaseOrder(Long id) {
+
         POStatus poStatus= new JPAQuery(em).from(qpurchaseOrder).where(qpurchaseOrder.id.id.eq(id)).uniqueResult(qpurchaseOrder).getStatus();
         if(poStatus!=POStatus.DELIVERED||poStatus!=POStatus.DISPATCHED){
             new JPAUpdateClause(em,qpurchaseOrder)

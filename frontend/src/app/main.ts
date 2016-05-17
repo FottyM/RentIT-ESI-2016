@@ -6,10 +6,10 @@ import {HTTP_BINDINGS} from 'angular2/http';
 import {RouteConfig, Route, ROUTER_PROVIDERS, ROUTER_DIRECTIVES} from 'angular2/router';
 
 import {POListingComponent} from './orders/purchase-order-listing.component';
-import {PHRWizardComponent} from './phr/phr-wizard.component';
-import {PlantCatalogService} from './phr/catalog.service';
-import {ProcurementService} from './phr/procurement.service';
-import {PHRListingComponent} from "./phr/phr-requests.component";
+import {RentitService} from './po/rentit-service';
+import {PlantCatalogService} from './po/catalog.service';
+
+import {PHRListingComponent} from "./po/po-invoice";
 
 
 @Component({
@@ -17,8 +17,8 @@ import {PHRListingComponent} from "./phr/phr-requests.component";
   directives: [ROUTER_DIRECTIVES],
   template: `
     <nav>
-      <a [routerLink]="['PHRWizard']">Create PHR</a>
-       <a [routerLink]="['PHRListing']">List all PHR's</a>
+      
+       <a [routerLink]="['PInvoice']">Invoice</a>
       <a [routerLink]="['POListing']">List all POs</a>
       
     </nav>
@@ -28,12 +28,12 @@ import {PHRListingComponent} from "./phr/phr-requests.component";
   `
 })
 @RouteConfig([
-  new Route({path: '/wizard', name: 'PHRWizard', component: PHRWizardComponent}),
+
   new Route({path: '/orders', name: 'POListing', component: POListingComponent}),
-  new Route({path: '/phrs', name: 'PHRListing', component: PHRListingComponent}),
+  new Route({path: '/invoices', name: 'PInvoice', component: PHRListingComponent}),
 ])
 export class AppComponent {    
 }
 
-bootstrap(AppComponent, [HTTP_BINDINGS, ROUTER_PROVIDERS, PlantCatalogService, ProcurementService]);
+bootstrap(AppComponent, [HTTP_BINDINGS, ROUTER_PROVIDERS, PlantCatalogService,RentitService]);
 

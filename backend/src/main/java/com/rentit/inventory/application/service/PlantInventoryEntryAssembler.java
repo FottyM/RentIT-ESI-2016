@@ -1,13 +1,10 @@
 package com.rentit.inventory.application.service;
 
-import com.rentit.common.rest.ExtendedLink;
 import com.rentit.inventory.application.dto.PlantInventoryEntryDTO;
 import com.rentit.inventory.domain.model.PlantInventoryEntry;
 import com.rentit.inventory.domain.model.PlantInventoryEntryID;
 import com.rentit.inventory.domain.repository.PlantInventoryEntryRepository;
 import com.rentit.inventory.rest.PlantInventoryEntryRestController;
-import com.rentit.sales.rest.PurchaseOrderRestController;
-import com.sun.corba.se.impl.interceptors.PICurrent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.Link;
 import org.springframework.hateoas.core.AnnotationMappingDiscoverer;
@@ -17,8 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.util.UriTemplate;
 
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
-import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
-import static org.springframework.http.HttpMethod.POST;
 
 @Service
 public class PlantInventoryEntryAssembler extends ResourceAssemblerSupport<PlantInventoryEntry, PlantInventoryEntryDTO> {
@@ -51,7 +46,8 @@ public class PlantInventoryEntryAssembler extends ResourceAssemblerSupport<Plant
         dto.setName(plantInventoryEntry.getName());
         dto.setDescription(plantInventoryEntry.getDescription());
         dto.setPrice(plantInventoryEntry.getPrice());
-        dto.setXlinks(dto.getLinks());
+       // dto.setXlinks(dto.getLinks());
+        dto.set_links(dto.getLinks());
          return dto;
     }
 
