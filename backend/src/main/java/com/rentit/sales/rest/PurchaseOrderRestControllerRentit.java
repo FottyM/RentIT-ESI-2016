@@ -3,6 +3,8 @@ package com.rentit.sales.rest;
 import com.rentit.common.application.dto.BusinessPeriodDTO;
 import com.rentit.common.domain.model.BusinessPeriod;
 import com.rentit.common.domain.model.UserType;
+import com.rentit.inventory.application.dto.PlantInventoryEntryDTO;
+import com.rentit.sales.application.dto.InvoiceDTO;
 import com.rentit.sales.application.dto.PurchaseOrderDTO;
 import com.rentit.sales.application.service.SalesService;
 import com.rentit.sales.domain.model.POStatus;
@@ -13,8 +15,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindException;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
+
 
 import java.net.URI;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -24,6 +29,8 @@ import static org.springframework.web.bind.annotation.RequestMethod.*;
 @RequestMapping("/api/sales/rentit/orders")
 @CrossOrigin
 public class PurchaseOrderRestControllerRentit {
+    @Autowired
+    RestTemplate restTemplate;
     @Autowired
     SalesService salesService;
     @RequestMapping(method = GET, path = "")
@@ -84,6 +91,17 @@ public class PurchaseOrderRestControllerRentit {
 
         PurchaseOrderDTO poDTO = salesService.cancelPurchaseOrder(oid);
         return poDTO;
+    }
+
+
+    @RequestMapping(method = GET, path = "/call")
+    public String p() throws Exception {
+
+        InvoiceDTO[] plants = restTemplate.getForObject(
+                "http://localhost:8080/api/invoice/",
+                InvoiceDTO[].class);
+        return Arrays.asList(plants).toString();
+
     }
 
     @ExceptionHandler(BindException.class)
