@@ -1,23 +1,21 @@
-version: '2'
-
-services:
-  rentit:
-    image: isaac/rentitservice
+rentit-frontend:
+    image: akaiz/rentit:1
     ports:
-      - "8090:8090"
-    networks:
-      - my_network
-    environment:
-      POSTGRES: postgres
-      POSTGRES_USERNAME: postgres
-      POSTGRES_PASSWORD: mysecretword
+      - "8000:8000"
+    links:
+      - rentit
+rentit:
+  image: akaiz/rentitservice:1
+  ports:
+    - "8090:8090"
+  links:
+    - postgres
+  environment:
+    POSTGRES: postgres
+    POSTGRES_USERNAME: postgres
+    POSTGRES_PASSWORD: mysecretword
 
-  postgres:
-    image: postgres
-    networks:
-      - my_network
-    environment:
-      POSTGRES_PASSWORD: mysecretword
-
-networks:
-  my_network:
+postgres:
+  image: postgres
+  environment:
+    POSTGRES_PASSWORD: mysecretword

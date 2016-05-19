@@ -144,13 +144,14 @@
 			<artifactId>jolt-complete</artifactId>
 			<version>0.0.20</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+
+		</dependency>
+
 	</dependencies>
 <!--SECURITY -->
-	<dependency>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-security</artifactId>
-
-	</dependency>
 
 	<build>
 		<plugins>
