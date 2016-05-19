@@ -1,4 +1,4 @@
-rentit-frontend:
+frontend:
     image: akaiz/rentit:1
     ports:
       - "8000:8000"
