@@ -61,25 +61,6 @@ public class PlantInventoryEntryRestController {
 
 
 
-//    @RequestMapping(method = GET, path = "")
-//    public List<PlantInventoryEntryDTO> findAvailablePlants2(
-//            @RequestParam(name = "name", required = false) String plantName,
-//            @RequestParam(name = "startDate", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
-//            @RequestParam(name = "endDate", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate) {
-//
-//
-//        if(plantName==null&& startDate==null && endDate==null){
-//            throw new IllegalArgumentException(
-//                    String.format("Wrong number of parameters: Name='%s', Start date='%s', End date='%s'",
-//                            plantName, startDate, endDate));
-//
-//        }
-//
-//        List<PlantInventoryEntryDTO> plants = inventoryService.findAvailablePlants(plantName, startDate, endDate);
-//         return plants;
-//
-//
-//    }
 
     @RequestMapping(method = GET, path = "/{id}")
     public PlantInventoryEntryDTO show(@PathVariable Long id) throws PlantNotFoundException {
