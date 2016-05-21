@@ -6,6 +6,7 @@ import com.rentit.common.domain.model.UserType;
 import com.rentit.common.domain.validation.BusinessPeriodValidator;
 import com.rentit.inventory.application.dto.PlantReservationDTO;
 import com.rentit.inventory.application.service.InventoryService;
+import com.rentit.inventory.application.service.PlantInventoryEntryAssembler;
 import com.rentit.inventory.domain.model.PlantInventoryEntry;
 import com.rentit.inventory.domain.model.PlantReservation;
 import com.rentit.common.application.exceptions.PlantNotFoundException;
@@ -43,6 +44,8 @@ public class SalesService {
     InvoiceRepository invoiceRepository;
     @Autowired
     PurchaseOrderExtensionRepository purchaseOrderExtensionRepository;
+    @Autowired
+    PlantInventoryEntryAssembler plantInventoryEntryAssembler;
     public PurchaseOrderDTO createPurchaseOrder(PurchaseOrderDTO purchaseOrderDTO,Long id) throws BindException, PlantNotFoundException {
         PlantInventoryEntry plant = inventoryService.findPlant(id);
         PurchaseOrder po = PurchaseOrder.of(
@@ -60,7 +63,9 @@ public class SalesService {
 
         purchaseOrderRepository.save(po);
 
-        PlantReservationDTO reservationDTO = inventoryService.createPlantReservation(purchaseOrderDTO.getPlant(), purchaseOrderDTO.getRentalPeriod());
+
+
+        PlantReservationDTO reservationDTO = inventoryService.createPlantReservation(plantInventoryEntryAssembler.toResource(plant), purchaseOrderDTO.getRentalPeriod());
 
         po.confirmReservation(
                 PlantReservationID.of(reservationDTO.get_id()),
@@ -78,15 +83,17 @@ public class SalesService {
         return purchaseOrderAssembler.toResource(po);
     }
 
-    public PurchaseOrderDTO findPurchaseOrder(PurchaseOrderID id) {
+    public PurchaseOrderDTO findPurchaseOrder(PurchaseOrderID id,UserType userType) {
+
 
         PurchaseOrder purchaseOrder = purchaseOrderRepository.findOne(id);
-        System.out.println(purchaseOrder);
+
            if(purchaseOrder==null){
 
             return  new PurchaseOrderDTO();
         }
         else {
+               purchaseOrderAssembler.setUserType(userType);
                return purchaseOrderAssembler.toResource(purchaseOrderRepository.findOne(id));
            }
 

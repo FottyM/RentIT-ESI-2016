@@ -41,9 +41,11 @@ public class PurchaseOrderRestControllerRentit {
 
     @RequestMapping(method = GET, path = "/{id}")
     public PurchaseOrderDTO showPurchaseOrder(@PathVariable Long id) throws Exception {
-        PurchaseOrderDTO poDTO = salesService.findPurchaseOrder(PurchaseOrderID.of(id));
+        PurchaseOrderDTO poDTO = salesService.findPurchaseOrder(PurchaseOrderID.of(id),UserType.RENTIT);
         return poDTO;
     }
+
+
     @RequestMapping(method = POST, path = "/{id}/accept")
     public PurchaseOrderDTO acceptPurchaseOrder(@PathVariable Long id) throws Exception {
 

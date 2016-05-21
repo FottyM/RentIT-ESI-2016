@@ -92,7 +92,12 @@ public class PurchaseOrderRepositoryImpl implements CustomPurchaseOrderRepositor
 
          if(status.equals(POStatus.PENDING_EXTENSION)){
              new JPAUpdateClause(em,qPurchaseOrderExtension)
-                     .set(qPurchaseOrderExtension.status,poStatus).where(qPurchaseOrderExtension.id.id.eq(eid).and(qPurchaseOrderExtension.purchaseOrder.id.eq(oid))).execute();
+                     .set(qPurchaseOrderExtension.status,poStatus).where(qPurchaseOrderExtension.id.id.eq(eid)
+                     .and(qPurchaseOrderExtension.purchaseOrder.id.eq(oid))).execute();
+
+              new JPAUpdateClause(em,qpurchaseOrder)
+                     .set(qpurchaseOrder.status,POStatus.EXTENDED).where(qpurchaseOrder.id.id.eq(oid)
+                    ).execute();
 
          }
                return new  JPAQuery(em)

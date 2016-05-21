@@ -5,6 +5,7 @@ import com.rentit.common.domain.model.BusinessPeriod;
 import com.rentit.common.domain.model.UserType;
 import com.rentit.inventory.application.dto.PlantInventoryEntryDTO;
 import com.rentit.sales.application.dto.PurchaseOrderDTO;
+import com.rentit.sales.application.dto.PurchaseOrderDTO2;
 import com.rentit.sales.application.service.SalesService;
 import com.rentit.sales.domain.model.POStatus;
 import com.rentit.sales.domain.model.PurchaseOrderID;
@@ -16,8 +17,11 @@ import org.springframework.validation.BindException;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
-import java.util.List;
-import java.util.Scanner;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import static org.springframework.web.bind.annotation.RequestMethod.*;
 
@@ -34,12 +38,60 @@ public class PurchaseOrderRestController {
     }
 
     @RequestMapping(method = POST, path = "")
-    public ResponseEntity<PurchaseOrderDTO> createPurchaseOrder(@RequestBody PurchaseOrderDTO poDTO) throws Exception {
+    public ResponseEntity<PurchaseOrderDTO> createPurchaseOrder(@RequestBody Object object) throws Exception {
 
 
-        String x =poDTO.getPlant().get_links().get(0).getHref().toString();
-        int id = Integer.parseInt(x.replaceAll("[^0-9]", ""));
-        poDTO = salesService.createPurchaseOrder(poDTO,Long.parseLong(id+""));
+
+    PurchaseOrderDTO poDTO = new PurchaseOrderDTO();
+
+
+
+       String plant =  ((LinkedHashMap) object).get("plant").toString();
+
+       String rentalperiod = ((LinkedHashMap) object).get("rentalPeriod").toString();
+        String contactEmail = ((LinkedHashMap) object).get("email").toString();
+       String startDate="",endDate="";
+        Pattern p = Pattern.compile(".*s\\/ *(.*)");
+         Long id;
+        Pattern.compile(".*s\\/ *(.*)");
+        Matcher m = p.matcher(plant);
+        while(m.find())
+        {
+            plant= m.group(1);
+            plant =plant.replaceAll("\\D+","");
+        }
+
+        p = Pattern.compile("startDate=(.*?),");
+        m = p.matcher(rentalperiod);
+        while(m.find())
+        {
+            startDate= m.group(1);
+
+        }
+
+        p = Pattern.compile("endDate=(.*?)}");
+        m = p.matcher(rentalperiod);
+        while(m.find())
+        {
+            endDate= m.group(1);
+        }
+
+
+
+
+        poDTO.setEmail(contactEmail);
+
+
+        BusinessPeriodDTO businessPeriodDTO =   new BusinessPeriodDTO();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+           businessPeriodDTO.setStartDate(LocalDate.parse(startDate,formatter));
+           businessPeriodDTO.setEndDate(LocalDate.parse(endDate,formatter));
+        poDTO.setRentalPeriod(businessPeriodDTO);
+
+
+
+
+        poDTO = salesService.createPurchaseOrder(poDTO,Long.parseLong(plant));
         HttpHeaders headers = new HttpHeaders();
         headers.setLocation(new URI(poDTO.getId().getHref()));
         return new ResponseEntity<PurchaseOrderDTO>(poDTO, headers, HttpStatus.CREATED);
@@ -47,7 +99,7 @@ public class PurchaseOrderRestController {
 
     @RequestMapping(method = GET, path = "/{id}")
     public PurchaseOrderDTO showPurchaseOrder(@PathVariable Long id) throws Exception {
-        PurchaseOrderDTO poDTO = salesService.findPurchaseOrder(PurchaseOrderID.of(id));
+        PurchaseOrderDTO poDTO = salesService.findPurchaseOrder(PurchaseOrderID.of(id),UserType.BUILDIT);
         return poDTO;
     }
     @RequestMapping(method = POST, path = "/{id}/accept")
@@ -64,6 +116,8 @@ public class PurchaseOrderRestController {
     }
     @RequestMapping(method = PUT, path = "/{id}")
     public PurchaseOrderDTO reSubmitPurchaseOrder(@RequestBody PlantInventoryEntryDTO plantInventoryEntryDTO, @RequestBody BusinessPeriod businessPeriod) throws Exception {
+
+
         String x =plantInventoryEntryDTO.get_links().get(0).getHref().toString();
         int id = Integer.parseInt(x.replaceAll("[^0-9]", ""));
         PurchaseOrderDTO poDTO = salesService.reSubmitPurchaseOrder(id,businessPeriod);

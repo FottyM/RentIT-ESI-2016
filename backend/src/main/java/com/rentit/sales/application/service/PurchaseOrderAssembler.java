@@ -58,21 +58,36 @@ public class PurchaseOrderAssembler extends ResourceAssemblerSupport<PurchaseOrd
             switch (purchaseOrder.getStatus()) {
                 case PENDING:
 
-                    dto.add(new ExtendedLink(
-                            linkTo(methodOn(PurchaseOrderRestController.class)
-                                    .acceptPurchaseOrder(purchaseOrder.getId().getId())).toString(),
-                            "accept", POST));
-                    dto.add(new ExtendedLink(
-                            linkTo(methodOn(PurchaseOrderRestController.class)
-                                    .rejectPurchaseOrder(purchaseOrder.getId().getId())).toString(),
-                            "reject", DELETE));
+                    if (userType.equals(UserType.BUILDIT))
+                    {
+                        dto.add(new ExtendedLink(
+                                linkTo(methodOn(PurchaseOrderRestController.class)
+                                        .deletePurchaseOrder(purchaseOrder.getId().getId())).toString(),
+                                "Cancel", DELETE));
+
+
+                    }
+                    else{
+
+                        dto.add(new ExtendedLink(
+                                linkTo(methodOn(PurchaseOrderRestController.class)
+                                        .acceptPurchaseOrder(purchaseOrder.getId().getId())).toString(),
+                                "accept", POST));
+                        dto.add(new ExtendedLink(
+                                linkTo(methodOn(PurchaseOrderRestController.class)
+                                        .rejectPurchaseOrder(purchaseOrder.getId().getId())).toString(),
+                                "reject", DELETE));
+                    }
+
+
+
                     break;
                 case OPEN:
 
 
 
 
-                    dto.add(new ExtendedLink(
+                       dto.add(new ExtendedLink(
 
                             linkTo(methodOn(PurchaseOrderRestController.class)
                                     .purchaseOrderCancel(purchaseOrder.getId().getId())).toString(),
@@ -113,6 +128,7 @@ public class PurchaseOrderAssembler extends ResourceAssemblerSupport<PurchaseOrd
                                         .extendPurchaseOrder(purchaseOrder.getId().getId(),dto.getRentalPeriod())).toString(),
                                 "extend", POST));
 
+
                     }
 
 
@@ -120,27 +136,33 @@ public class PurchaseOrderAssembler extends ResourceAssemblerSupport<PurchaseOrd
                     break;
                 case REJECTED:
 
+                    break;
+                case DELIVERED:
+                    if (userType.equals(UserType.BUILDIT)){
 
-//                    dto.add(new ExtendedLink(
-//                            linkTo(methodOn(PurchaseOrderRestController.class)
-//                                    .reSubmitPurchaseOrder(null,null)).toString(),
-//                            "resubmit", PUT));
+                        dto.add(new ExtendedLink(
+
+                                linkTo(methodOn(PurchaseOrderRestController.class)
+                                        .purchaseOrderUpdateStatus(purchaseOrder.getId().getId(), POStatus.REJECTED)).toString(),
+                                "REJECT", POST));
+
+                        dto.add(new ExtendedLink(
+                                linkTo(methodOn(PurchaseOrderRestController.class)
+                                        .extendPurchaseOrder(purchaseOrder.getId().getId(),dto.getRentalPeriod())).toString(),
+                                "extend", POST));
+
+                    }
+                    else {
+                        dto.add(new ExtendedLink(
+
+                                linkTo(methodOn(PurchaseOrderRestController.class)
+                                        .purchaseOrderUpdateStatus(purchaseOrder.getId().getId(), POStatus.RETURNED)).toString(),
+                                "RETURNED", POST));
+                    }
+
+
 
                     break;
-//                case CLOSED:
-//                    if (userType.equals(UserType.RENTIT)){
-//
-//                        dto.add(new ExtendedLink(
-//                                linkTo(methodOn(InvoiceRestController.class)
-//
-//                                        .sendInvoice(purchaseOrder.getId().getId(),null,null)).toString(),
-//                                "sendinvoice", POST));
-//
-//                    }
-//
-//
-//
-//                    break;
                 default:
                     break;
             }
@@ -182,17 +204,6 @@ public class PurchaseOrderAssembler extends ResourceAssemblerSupport<PurchaseOrd
 
             }
         }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
