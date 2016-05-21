@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.math.BigDecimal;
 
 @Configuration
-@Profile("dev")
+@Profile({"dev","docker"})
 public class DatabasePopulator {
     @Autowired
     @Qualifier("objectMapper")

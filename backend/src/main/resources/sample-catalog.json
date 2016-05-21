@@ -1,38 +1,300 @@
-[ {"_class" : "com.rentit.inventory.domain.model.PlantInventoryEntry", "id": 1, "name": "Mini excavator", "description": "1.5 Tonne Mini excavator", "price": 150},
-  {"_class" : "com.rentit.inventory.domain.model.PlantInventoryEntry", "id": 2, "name": "Mini excavator", "description": "3 Tonne Mini excavator", "price": 200},
-  {"_class" : "com.rentit.inventory.domain.model.PlantInventoryEntry", "id": 3, "name": "Midi excavator", "description": "5 Tonne Midi excavator", "price": 250},
-  {"_class" : "com.rentit.inventory.domain.model.PlantInventoryEntry", "id": 4, "name": "Midi excavator", "description": "8 Tonne Midi excavator", "price": 300},
-  {"_class" : "com.rentit.inventory.domain.model.PlantInventoryEntry", "id": 5, "name": "Maxi excavator", "description": "15 Tonne Large excavator", "price": 400},
-  {"_class" : "com.rentit.inventory.domain.model.PlantInventoryEntry", "id": 6, "name": "Maxi excavator", "description": "20 Tonne Large excavator", "price": 450},
-  {"_class" : "com.rentit.inventory.domain.model.PlantInventoryEntry", "id": 7, "name": "HS dumper", "description": "1.5 Tonne Hi-Swivel Dumper", "price": 150},
-  {"_class" : "com.rentit.inventory.domain.model.PlantInventoryEntry", "id": 8, "name": "FT dumper", "description": "2 Tonne Front Tip Dumper", "price": 180},
-  {"_class" : "com.rentit.inventory.domain.model.PlantInventoryEntry", "id": 9, "name": "FT dumper", "description": "3 Tonne Front Tip Dumper", "price": 200},
-  {"_class" : "com.rentit.inventory.domain.model.PlantInventoryEntry", "id": 10, "name": "FT dumper", "description": "5 Tonne Front Tip Dumper", "price": 300},
-  {"_class" : "com.rentit.inventory.domain.model.PlantInventoryEntry", "id": 11, "name": "FT dumper", "description": "8 Tonne Front Tip Dumper", "price": 400},
-  {"_class" : "com.rentit.inventory.domain.model.PlantInventoryEntry", "id": 12, "name": "Loader", "description": "Hewden Backhoe Loader", "price": 200},
-  {"_class" : "com.rentit.inventory.domain.model.PlantInventoryEntry", "id": 13, "name": "D-Truck", "description": "15 Tonne Articulating Dump Truck", "price": 250},
-  {"_class" : "com.rentit.inventory.domain.model.PlantInventoryEntry", "id": 14, "name": "D-Truck", "description": "30 Tonne Articulating Dump Truck", "price": 300}
-  ,
-  {"_class" : "com.rentit.inventory.domain.model.PlantInventoryItem", "id": 1, "serialNumber": "EXC-1.5-123", "condition": "SERVICEABLE", "plantInfo": {"id": 1}},
-  {"_class" : "com.rentit.inventory.domain.model.PlantInventoryItem", "id": 2, "serialNumber": "EXC-1.5-124", "condition": "SERVICEABLE", "plantInfo": {"id": 1}},
-  {"_class" : "com.rentit.inventory.domain.model.PlantInventoryItem", "id": 3, "serialNumber": "EXC-3.0-125", "condition": "REPAIRABLE", "plantInfo": {"id": 2}},
-  {"_class" : "com.rentit.inventory.domain.model.PlantInventoryItem", "id": 4, "serialNumber": "EXC-5.0-123", "condition": "SERVICEABLE", "plantInfo": {"id": 3}},
-  {"_class" : "com.rentit.inventory.domain.model.PlantInventoryItem", "id": 5, "serialNumber": "EXC-5.0-124", "condition": "SERVICEABLE", "plantInfo": {"id": 3}},
-  {"_class" : "com.rentit.inventory.domain.model.PlantInventoryItem", "id": 6, "serialNumber": "EXC-8.0-123", "condition": "SERVICEABLE", "plantInfo": {"id": 4}},
-  {"_class" : "com.rentit.inventory.domain.model.PlantInventoryItem", "id": 7, "serialNumber": "EXC-15.0-123", "condition": "SERVICEABLE", "plantInfo": {"id": 5}},
-  {"_class" : "com.rentit.inventory.domain.model.PlantInventoryItem", "id": 8, "serialNumber": "EXC-20.0-123", "condition": "SERVICEABLE", "plantInfo": {"id": 6}},
-  {"_class" : "com.rentit.inventory.domain.model.PlantInventoryItem", "id": 9, "serialNumber": "DMP-1.5-123", "condition": "SERVICEABLE", "plantInfo": {"id": 7}},
-  {"_class" : "com.rentit.inventory.domain.model.PlantInventoryItem", "id": 10, "serialNumber": "DMP-2.0-124", "condition": "SERVICEABLE", "plantInfo": {"id": 8}},
-  {"_class" : "com.rentit.inventory.domain.model.PlantInventoryItem", "id": 11, "serialNumber": "DMP-3.0-125", "condition": "SERVICEABLE", "plantInfo": {"id": 9}},
-  {"_class" : "com.rentit.inventory.domain.model.PlantInventoryItem", "id": 12, "serialNumber": "DMP-5.0-123", "condition": "SERVICEABLE", "plantInfo": {"id": 10}},
-  {"_class" : "com.rentit.inventory.domain.model.PlantInventoryItem", "id": 13, "serialNumber": "DMP-8.0-124", "condition": "SERVICEABLE", "plantInfo": {"id": 11}},
-  {"_class" : "com.rentit.inventory.domain.model.PlantInventoryItem", "id": 14, "serialNumber": "LDR-5.0-123", "condition": "SERVICEABLE", "plantInfo": {"id": 12}},
-  {"_class" : "com.rentit.inventory.domain.model.PlantInventoryItem", "id": 15, "serialNumber": "TRK-15.0-123", "condition": "SERVICEABLE", "plantInfo": {"id": 13}},
-  {"_class" : "com.rentit.inventory.domain.model.PlantInventoryItem", "id": 16, "serialNumber": "TRK-30.0-123", "condition": "SERVICEABLE", "plantInfo": {"id": 14}}
-  ,{"_class" : "com.rentit.sales.domain.model.PurchaseOrder", "id": 1, "plant":1, "rentalPeriod":{"startDate":"2016-05-08","endDate":"2016-05-14"},"status":"PENDING_EXTENSION","contactEmail":"agabaisaacsoftwares@gmail.com","total": 1000},
-  {"_class" : "com.rentit.sales.domain.model.PurchaseOrder", "id": 2, "plant":2, "rentalPeriod":{"startDate":"2016-03-08","endDate":"2016-05-14"},"status":"PENDING","contactEmail":"agabaisaacsoftwares@gmail.com","total": 1000}
-,
-  {"_class" : "com.rentit.sales.domain.model.PurchaseOrder", "id": 3, "plant":2, "rentalPeriod":{"startDate":"2016-03-08","endDate":"2016-05-14"},"status":"CLOSED","contactEmail":"akaizat1@gmail.com","total": 1000},
-  {"_class" : "com.rentit.sales.domain.model.PurchaseOrderExtension", "id": 1, "purchaseOrder":1, "rentalPeriod":{"startDate":"2016-03-15","endDate":"2016-05-16"},"status":"PENDING"},
-  {"_class" : "com.rentit.sales.domain.model.PurchaseOrderExtension", "id": 2, "purchaseOrder":1, "rentalPeriod":{"startDate":"2016-03-17","endDate":"2016-05-18"},"status":"PENDING"}
+[
+  {
+    "_class": "com.rentit.inventory.domain.model.PlantInventoryEntry",
+    "id": 1,
+    "name": "Mini excavator",
+    "description": "1.5 Tonne Mini excavator",
+    "price": 150
+  },
+  {
+    "_class": "com.rentit.inventory.domain.model.PlantInventoryEntry",
+    "id": 2,
+    "name": "Mini excavator",
+    "description": "3 Tonne Mini excavator",
+    "price": 200
+  },
+  {
+    "_class": "com.rentit.inventory.domain.model.PlantInventoryEntry",
+    "id": 3,
+    "name": "Midi excavator",
+    "description": "5 Tonne Midi excavator",
+    "price": 250
+  },
+  {
+    "_class": "com.rentit.inventory.domain.model.PlantInventoryEntry",
+    "id": 4,
+    "name": "Midi excavator",
+    "description": "8 Tonne Midi excavator",
+    "price": 300
+  },
+  {
+    "_class": "com.rentit.inventory.domain.model.PlantInventoryEntry",
+    "id": 5,
+    "name": "Maxi excavator",
+    "description": "15 Tonne Large excavator",
+    "price": 400
+  },
+  {
+    "_class": "com.rentit.inventory.domain.model.PlantInventoryEntry",
+    "id": 6,
+    "name": "Maxi excavator",
+    "description": "20 Tonne Large excavator",
+    "price": 450
+  },
+  {
+    "_class": "com.rentit.inventory.domain.model.PlantInventoryEntry",
+    "id": 7,
+    "name": "HS dumper",
+    "description": "1.5 Tonne Hi-Swivel Dumper",
+    "price": 150
+  },
+  {
+    "_class": "com.rentit.inventory.domain.model.PlantInventoryEntry",
+    "id": 8,
+    "name": "FT dumper",
+    "description": "2 Tonne Front Tip Dumper",
+    "price": 180
+  },
+  {
+    "_class": "com.rentit.inventory.domain.model.PlantInventoryEntry",
+    "id": 9,
+    "name": "FT dumper",
+    "description": "3 Tonne Front Tip Dumper",
+    "price": 200
+  },
+  {
+    "_class": "com.rentit.inventory.domain.model.PlantInventoryEntry",
+    "id": 10,
+    "name": "FT dumper",
+    "description": "5 Tonne Front Tip Dumper",
+    "price": 300
+  },
+  {
+    "_class": "com.rentit.inventory.domain.model.PlantInventoryEntry",
+    "id": 11,
+    "name": "FT dumper",
+    "description": "8 Tonne Front Tip Dumper",
+    "price": 400
+  },
+  {
+    "_class": "com.rentit.inventory.domain.model.PlantInventoryEntry",
+    "id": 12,
+    "name": "Loader",
+    "description": "Hewden Backhoe Loader",
+    "price": 200
+  },
+  {
+    "_class": "com.rentit.inventory.domain.model.PlantInventoryEntry",
+    "id": 13,
+    "name": "D-Truck",
+    "description": "15 Tonne Articulating Dump Truck",
+    "price": 250
+  },
+  {
+    "_class": "com.rentit.inventory.domain.model.PlantInventoryEntry",
+    "id": 14,
+    "name": "D-Truck",
+    "description": "30 Tonne Articulating Dump Truck",
+    "price": 300
+  },
+  {
+    "_class": "com.rentit.inventory.domain.model.PlantInventoryItem",
+    "id": 1,
+    "serialNumber": "EXC-1.5-123",
+    "condition": "SERVICEABLE",
+    "plantInfo": {
+      "id": 1
+    }
+  },
+  {
+    "_class": "com.rentit.inventory.domain.model.PlantInventoryItem",
+    "id": 2,
+    "serialNumber": "EXC-1.5-124",
+    "condition": "SERVICEABLE",
+    "plantInfo": {
+      "id": 1
+    }
+  },
+  {
+    "_class": "com.rentit.inventory.domain.model.PlantInventoryItem",
+    "id": 3,
+    "serialNumber": "EXC-3.0-125",
+    "condition": "REPAIRABLE",
+    "plantInfo": {
+      "id": 2
+    }
+  },
+  {
+    "_class": "com.rentit.inventory.domain.model.PlantInventoryItem",
+    "id": 4,
+    "serialNumber": "EXC-5.0-123",
+    "condition": "SERVICEABLE",
+    "plantInfo": {
+      "id": 3
+    }
+  },
+  {
+    "_class": "com.rentit.inventory.domain.model.PlantInventoryItem",
+    "id": 5,
+    "serialNumber": "EXC-5.0-124",
+    "condition": "SERVICEABLE",
+    "plantInfo": {
+      "id": 3
+    }
+  },
+  {
+    "_class": "com.rentit.inventory.domain.model.PlantInventoryItem",
+    "id": 6,
+    "serialNumber": "EXC-8.0-123",
+    "condition": "SERVICEABLE",
+    "plantInfo": {
+      "id": 4
+    }
+  },
+  {
+    "_class": "com.rentit.inventory.domain.model.PlantInventoryItem",
+    "id": 7,
+    "serialNumber": "EXC-15.0-123",
+    "condition": "SERVICEABLE",
+    "plantInfo": {
+      "id": 5
+    }
+  },
+  {
+    "_class": "com.rentit.inventory.domain.model.PlantInventoryItem",
+    "id": 8,
+    "serialNumber": "EXC-20.0-123",
+    "condition": "SERVICEABLE",
+    "plantInfo": {
+      "id": 6
+    }
+  },
+  {
+    "_class": "com.rentit.inventory.domain.model.PlantInventoryItem",
+    "id": 9,
+    "serialNumber": "DMP-1.5-123",
+    "condition": "SERVICEABLE",
+    "plantInfo": {
+      "id": 7
+    }
+  },
+  {
+    "_class": "com.rentit.inventory.domain.model.PlantInventoryItem",
+    "id": 10,
+    "serialNumber": "DMP-2.0-124",
+    "condition": "SERVICEABLE",
+    "plantInfo": {
+      "id": 8
+    }
+  },
+  {
+    "_class": "com.rentit.inventory.domain.model.PlantInventoryItem",
+    "id": 11,
+    "serialNumber": "DMP-3.0-125",
+    "condition": "SERVICEABLE",
+    "plantInfo": {
+      "id": 9
+    }
+  },
+  {
+    "_class": "com.rentit.inventory.domain.model.PlantInventoryItem",
+    "id": 12,
+    "serialNumber": "DMP-5.0-123",
+    "condition": "SERVICEABLE",
+    "plantInfo": {
+      "id": 10
+    }
+  },
+  {
+    "_class": "com.rentit.inventory.domain.model.PlantInventoryItem",
+    "id": 13,
+    "serialNumber": "DMP-8.0-124",
+    "condition": "SERVICEABLE",
+    "plantInfo": {
+      "id": 11
+    }
+  },
+  {
+    "_class": "com.rentit.inventory.domain.model.PlantInventoryItem",
+    "id": 14,
+    "serialNumber": "LDR-5.0-123",
+    "condition": "SERVICEABLE",
+    "plantInfo": {
+      "id": 12
+    }
+  },
+  {
+    "_class": "com.rentit.inventory.domain.model.PlantInventoryItem",
+    "id": 15,
+    "serialNumber": "TRK-15.0-123",
+    "condition": "SERVICEABLE",
+    "plantInfo": {
+      "id": 13
+    }
+  },
+  {
+    "_class": "com.rentit.inventory.domain.model.PlantInventoryItem",
+    "id": 16,
+    "serialNumber": "TRK-30.0-123",
+    "condition": "SERVICEABLE",
+    "plantInfo": {
+      "id": 14
+    }
+  },
+  {
+    "_class": "com.rentit.sales.domain.model.PurchaseOrder",
+    "id": 1,
+    "plant": 1,
+    "rentalPeriod": {
+      "startDate": "2016-05-08",
+      "endDate": "2016-05-14"
+    },
+    "status": "PENDING_EXTENSION",
+    "contactEmail": "agabaisaacsoftwares@gmail.com",
+    "total": 1000
+  },
+  {
+    "_class": "com.rentit.sales.domain.model.PurchaseOrder",
+    "id": 2,
+    "plant": 2,
+    "rentalPeriod": {
+      "startDate": "2016-03-08",
+      "endDate": "2016-05-14"
+    },
+    "status": "PENDING",
+    "contactEmail": "agabaisaacsoftwares@gmail.com",
+    "total": 1000
+  },
+  {
+    "_class": "com.rentit.sales.domain.model.PurchaseOrder",
+    "id": 3,
+    "plant": 2,
+    "rentalPeriod": {
+      "startDate": "2016-03-08",
+      "endDate": "2016-05-14"
+    },
+    "status": "CLOSED",
+    "contactEmail": "akaizat1@gmail.com",
+    "total": 1000
+  },
+  {
+    "_class": "com.rentit.sales.domain.model.PurchaseOrderExtension",
+    "id": 1,
+    "purchaseOrder": 1,
+    "rentalPeriod": {
+      "startDate": "2016-03-15",
+      "endDate": "2016-05-16"
+    },
+    "status": "PENDING"
+  },
+  {
+    "_class": "com.rentit.sales.domain.model.PurchaseOrderExtension",
+    "id": 2,
+    "purchaseOrder": 1,
+    "rentalPeriod": {
+      "startDate": "2016-03-17",
+      "endDate": "2016-05-18"
+    },
+    "status": "PENDING"
+  }
 ]

@@ -1,5 +1,6 @@
 package com.rentit.sales.web;
 
+import com.rentit.common.domain.model.UserType;
 import com.rentit.inventory.application.service.InventoryService;
 import com.rentit.sales.application.dto.PurchaseOrderDTO;
 import com.rentit.sales.application.service.SalesService;
@@ -47,7 +48,7 @@ public class DashboardController {
 
     @RequestMapping(method = GET, path = "/orders/{id}")
     public String showPurchaseOrder(Model model, @PathVariable Long id) {
-        PurchaseOrderDTO po = salesService.findPurchaseOrder(PurchaseOrderID.of(id));
+        PurchaseOrderDTO po = salesService.findPurchaseOrder(PurchaseOrderID.of(id), UserType.RENTIT);
         model.addAttribute("po", po);
         return "dashboard/orders/show";
     }

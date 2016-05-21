@@ -78,15 +78,17 @@ public class SalesService {
         return purchaseOrderAssembler.toResource(po);
     }
 
-    public PurchaseOrderDTO findPurchaseOrder(PurchaseOrderID id) {
+    public PurchaseOrderDTO findPurchaseOrder(PurchaseOrderID id,UserType userType) {
+
 
         PurchaseOrder purchaseOrder = purchaseOrderRepository.findOne(id);
-        System.out.println(purchaseOrder);
+
            if(purchaseOrder==null){
 
             return  new PurchaseOrderDTO();
         }
         else {
+                      purchaseOrderAssembler.setUserType(userType);
                return purchaseOrderAssembler.toResource(purchaseOrderRepository.findOne(id));
            }
 
