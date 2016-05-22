@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.rentit.sales.rest.SalesRestControllerTests" time="0.082" tests="1" errors="1" skipped="0" failures="0">
+  <properties>
+    <property name="idea.version" value="2016.1.2"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_73\jre\bin"/>
+    <property name="java.vm.version" value="25.73-b02"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=";"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="idea.launcher.port" value="7533"/>
+    <property name="user.script" value=""/>
+    <property name="user.country" value="US"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="C:\Users\akaiz\Esifinalproject\rentit\backend"/>
+    <property name="java.runtime.version" value="1.8.0_73-b02"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_73\jre\lib\endorsed"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="C:\Users\akaiz\AppData\Local\Temp\"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="classworlds.conf" value="C:\Program Files (x86)\JetBrains\IntelliJ IDEA 2016.1.2\plugins\maven\lib\maven3\bin\m2.conf"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_73\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Java\jre1.8.0_73\bin\;C:\Program Files\Git\cmd;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Program Files\MiKTeX 2.9\miktex\bin\x64\;C:\Program Files\nodejs\;C:\xampp\php;C:\ProgramData\ComposerSetup\bin;C:\Program Files (x86)\Skype\Phone\;C:\Program Files (x86)\Bitvise SSH Client;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\Client SDK\ODBC\130\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\130\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\130\Tools\Binn\ManagementStudio\;C:\Users\akaiz\AppData\Roaming\npm;C:\Program Files\Docker Toolbox;C:\Users\akaiz\AppData\Local\atom\bin;;."/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="10.0"/>
+    <property name="user.home" value="C:\Users\akaiz"/>
+    <property name="user.timezone" value="EET"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="idea.launcher.bin.path" value="C:\Program Files (x86)\JetBrains\IntelliJ IDEA 2016.1.2\bin"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="user.name" value="akaiz"/>
+    <property name="java.class.path" value="C:\Program Files (x86)\JetBrains\IntelliJ IDEA 2016.1.2\plugins\maven\lib\maven3\boot\plexus-classworlds-2.4.jar;C:\Program Files (x86)\JetBrains\IntelliJ IDEA 2016.1.2\lib\idea_rt.jar"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_73\jre"/>
+    <property name="sun.java.command" value="com.intellij.rt.execution.application.AppMain org.codehaus.classworlds.Launcher -Didea.version=2016.1.2 package"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="en"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.8.0_73"/>
+    <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.8.0_73\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext"/>
+    <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_73\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_73\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_73\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_73\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_73\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_73\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_73\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_73\jre\classes"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="C:\Program Files (x86)\JetBrains\IntelliJ IDEA 2016.1.2\plugins\maven\lib\maven3"/>
+    <property name="file.separator" value="\"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.desktop" value="windows"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+  </properties>
+  <testcase name="testGetAllPlants" classname="com.rentit.sales.rest.SalesRestControllerTests" time="0.082">
+    <error message="Can not deserialize instance of java.util.ArrayList out of START_OBJECT token&#10; at [Source: [{&quot;name&quot;:&quot;Mini excavator&quot;,&quot;description&quot;:&quot;1.5 Tonne Mini excavator&quot;,&quot;price&quot;:150.00,&quot;_links&quot;:{&quot;self&quot;:{&quot;href&quot;:&quot;http://localhost/api/inventory/plants/1&quot;}},&quot;_xlinks&quot;:[]},{&quot;name&quot;:&quot;Midi excavator&quot;,&quot;description&quot;:&quot;5 Tonne Midi excavator&quot;,&quot;price&quot;:250.00,&quot;_links&quot;:{&quot;self&quot;:{&quot;href&quot;:&quot;http://localhost/api/inventory/plants/3&quot;}},&quot;_xlinks&quot;:[]},{&quot;name&quot;:&quot;Maxi excavator&quot;,&quot;description&quot;:&quot;15 Tonne Large excavator&quot;,&quot;price&quot;:400.00,&quot;_links&quot;:{&quot;self&quot;:{&quot;href&quot;:&quot;http://localhost/api/inventory/plants/5&quot;}},&quot;_xlinks&quot;:[]},{&quot;name&quot;:&quot;Maxi excavator&quot;,&quot;description&quot;:&quot;20 Tonne Large excavator&quot;,&quot;price&quot;:450.00,&quot;_links&quot;:{&quot;self&quot;:{&quot;href&quot;:&quot;http://localhost/api/inventory/plants/6&quot;}},&quot;_xlinks&quot;:[]},{&quot;name&quot;:&quot;Midi excavator&quot;,&quot;description&quot;:&quot;8 Tonne Midi excavator&quot;,&quot;price&quot;:300.00,&quot;_links&quot;:{&quot;self&quot;:{&quot;href&quot;:&quot;http://localhost/api/inventory/plants/4&quot;}},&quot;_xlinks&quot;:[]}]; line: 1, column: 82] (through reference chain: java.util.ArrayList[0]-&gt;com.rentit.inventory.application.dto.PlantInventoryEntryDTO[&quot;_links&quot;])" type="com.fasterxml.jackson.databind.JsonMappingException">com.fasterxml.jackson.databind.JsonMappingException: Can not deserialize instance of java.util.ArrayList out of START_OBJECT token
+ at [Source: [{"name":"Mini excavator","description":"1.5 Tonne Mini excavator","price":150.00,"_links":{"self":{"href":"http://localhost/api/inventory/plants/1"}},"_xlinks":[]},{"name":"Midi excavator","description":"5 Tonne Midi excavator","price":250.00,"_links":{"self":{"href":"http://localhost/api/inventory/plants/3"}},"_xlinks":[]},{"name":"Maxi excavator","description":"15 Tonne Large excavator","price":400.00,"_links":{"self":{"href":"http://localhost/api/inventory/plants/5"}},"_xlinks":[]},{"name":"Maxi excavator","description":"20 Tonne Large excavator","price":450.00,"_links":{"self":{"href":"http://localhost/api/inventory/plants/6"}},"_xlinks":[]},{"name":"Midi excavator","description":"8 Tonne Midi excavator","price":300.00,"_links":{"self":{"href":"http://localhost/api/inventory/plants/4"}},"_xlinks":[]}]; line: 1, column: 82] (through reference chain: java.util.ArrayList[0]->com.rentit.inventory.application.dto.PlantInventoryEntryDTO["_links"])
+	at com.fasterxml.jackson.databind.JsonMappingException.from(JsonMappingException.java:148)
+	at com.fasterxml.jackson.databind.DeserializationContext.mappingException(DeserializationContext.java:857)
+	at com.fasterxml.jackson.databind.DeserializationContext.mappingException(DeserializationContext.java:853)
+	at com.fasterxml.jackson.databind.deser.std.CollectionDeserializer.handleNonArray(CollectionDeserializer.java:292)
+	at com.fasterxml.jackson.databind.deser.std.CollectionDeserializer.deserialize(CollectionDeserializer.java:227)
+	at com.fasterxml.jackson.databind.deser.std.CollectionDeserializer.deserialize(CollectionDeserializer.java:217)
+	at com.fasterxml.jackson.databind.deser.std.CollectionDeserializer.deserialize(CollectionDeserializer.java:25)
+	at com.fasterxml.jackson.databind.deser.SettableBeanProperty.deserialize(SettableBeanProperty.java:520)
+	at com.fasterxml.jackson.databind.deser.impl.MethodProperty.deserializeAndSet(MethodProperty.java:95)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:258)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:125)
+	at com.fasterxml.jackson.databind.deser.std.CollectionDeserializer.deserialize(CollectionDeserializer.java:245)
+	at com.fasterxml.jackson.databind.deser.std.CollectionDeserializer.deserialize(CollectionDeserializer.java:217)
+	at com.fasterxml.jackson.databind.deser.std.CollectionDeserializer.deserialize(CollectionDeserializer.java:25)
+	at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:3736)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:2745)
+	at com.rentit.sales.rest.SalesRestControllerTests.testGetAllPlants(SalesRestControllerTests.java:71)
+</error>
+    <system-out><![CDATA[2016-05-19 23:21:52.134  INFO 3540 --- [           main] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@2060df8: startup date [Thu May 19 23:21:48 EEST 2016]; root of context hierarchy
+2016-05-19 23:21:52.136  INFO 3540 --- [           main] o.s.c.support.DefaultLifecycleProcessor  : Stopping beans in phase 0
+2016-05-19 23:21:52.137  INFO 3540 --- [           main] ProxyFactoryBean$MethodInvocationGateway : stopped invoiceGateway
+2016-05-19 23:21:52.137  INFO 3540 --- [           main] GatewayCompletableFutureProxyFactoryBean : stopped invoiceGateway
+2016-05-19 23:21:52.137  INFO 3540 --- [           main] o.s.i.endpoint.EventDrivenConsumer       : Removing {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2016-05-19 23:21:52.137  INFO 3540 --- [           main] o.s.i.channel.PublishSubscribeChannel    : Channel 'application:test:-1.errorChannel' has 0 subscriber(s).
+2016-05-19 23:21:52.137  INFO 3540 --- [           main] o.s.i.endpoint.EventDrivenConsumer       : stopped _org.springframework.integration.errorLogger
+2016-05-19 23:21:52.138  INFO 3540 --- [           main] o.s.i.endpoint.EventDrivenConsumer       : Removing {mail:outbound-channel-adapter} as a subscriber to the 'sendInvoiceChannel' channel
+2016-05-19 23:21:52.138  INFO 3540 --- [           main] o.s.integration.channel.DirectChannel    : Channel 'application:test:-1.sendInvoiceChannel' has 0 subscriber(s).
+2016-05-19 23:21:52.138  INFO 3540 --- [           main] o.s.i.endpoint.EventDrivenConsumer       : stopped org.springframework.integration.config.ConsumerEndpointFactoryBean#0
+2016-05-19 23:21:52.146  INFO 3540 --- [           main] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2016-05-19 23:21:52.146  INFO 3540 --- [           main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2016-05-19 23:21:52.151  INFO 3540 --- [           main] org.hibernate.tool.hbm2ddl.SchemaExport  : HHH000227: Running hbm2ddl schema export
+2016-05-19 23:21:52.159  INFO 3540 --- [           main] org.hibernate.tool.hbm2ddl.SchemaExport  : HHH000230: Schema export complete
+2016-05-19 23:21:52.166  INFO 3540 --- [           main] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.rentit.sales.rest.SalesRestControllerTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+2016-05-19 23:21:52.171  INFO 3540 --- [           main] o.s.t.c.web.WebTestContextBootstrapper   : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2016-05-19 23:21:52.172  INFO 3540 --- [           main] o.s.t.c.web.WebTestContextBootstrapper   : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@3ae648d2, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@559d9517, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@7f69a16b, org.springframework.test.context.support.DirtiesContextTestExecutionListener@7d461450, org.springframework.test.context.transaction.TransactionalTestExecutionListener@75ee63f2, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@4c627575]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v1.3.3.RELEASE)
+
+2016-05-19 23:21:52.247  INFO 3540 --- [           main] c.r.sales.rest.SalesRestControllerTests  : Starting SalesRestControllerTests on DESKTOP-JFEE6TK with PID 3540 (C:\Users\akaiz\Esifinalproject\rentit\backend\target\test-classes started by akaiz in C:\Users\akaiz\Esifinalproject\rentit\backend)
+2016-05-19 23:21:52.247  INFO 3540 --- [           main] c.r.sales.rest.SalesRestControllerTests  : The following profiles are active: test
+2016-05-19 23:21:52.249  INFO 3540 --- [           main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@6587c92f: startup date [Thu May 19 23:21:52 EEST 2016]; root of context hierarchy
+2016-05-19 23:21:53.028  INFO 3540 --- [           main] o.s.b.f.s.DefaultListableBeanFactory     : Overriding bean definition for bean 'beanNameViewResolver' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.web.ErrorMvcAutoConfiguration$WhitelabelErrorViewConfiguration; factoryMethodName=beanNameViewResolver; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/web/ErrorMvcAutoConfiguration$WhitelabelErrorViewConfiguration.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration$WebMvcAutoConfigurationAdapter; factoryMethodName=beanNameViewResolver; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/web/WebMvcAutoConfiguration$WebMvcAutoConfigurationAdapter.class]]
+2016-05-19 23:21:53.307  INFO 3540 --- [           main] o.s.i.config.IntegrationRegistrar        : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2016-05-19 23:21:53.345  INFO 3540 --- [           main] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2016-05-19 23:21:53.345  INFO 3540 --- [           main] faultConfiguringBeanFactoryPostProcessor : No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+2016-05-19 23:21:53.350  INFO 3540 --- [           main] f.a.AutowiredAnnotationBeanPostProcessor : JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-05-19 23:21:53.387  INFO 3540 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [class org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$583ee035] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-05-19 23:21:53.569  INFO 3540 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : Executing SQL script from URL [file:/C:/Users/akaiz/Esifinalproject/rentit/backend/target/classes/schema.sql]
+2016-05-19 23:21:53.571  INFO 3540 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : Executed SQL script from URL [file:/C:/Users/akaiz/Esifinalproject/rentit/backend/target/classes/schema.sql] in 2 ms.
+2016-05-19 23:21:53.656  INFO 3540 --- [           main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2016-05-19 23:21:53.656  INFO 3540 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2016-05-19 23:21:53.689  INFO 3540 --- [           main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2016-05-19 23:21:53.712  INFO 3540 --- [           main] o.h.h.i.ast.ASTQueryTranslatorFactory    : HHH000397: Using ASTQueryTranslatorFactory
+2016-05-19 23:21:53.761  INFO 3540 --- [           main] org.hibernate.tool.hbm2ddl.SchemaExport  : HHH000227: Running hbm2ddl schema export
+2016-05-19 23:21:53.772  INFO 3540 --- [           main] org.hibernate.tool.hbm2ddl.SchemaExport  : HHH000230: Schema export complete
+2016-05-19 23:21:53.806  WARN 3540 --- [           main] o.h.j.i.EntityManagerFactoryRegistry     : HHH000436: Entity manager factory name (default) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+2016-05-19 23:21:54.040  INFO 3540 --- [           main] o.s.b.f.config.PropertiesFactoryBean     : Loading properties file from URL [jar:file:/C:/Users/akaiz/.m2/repository/org/springframework/integration/spring-integration-core/4.2.5.RELEASE/spring-integration-core-4.2.5.RELEASE.jar!/META-INF/spring.integration.default.properties]
+2016-05-19 23:21:54.059  INFO 3540 --- [           main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService  'taskScheduler'
+2016-05-19 23:21:54.478  INFO 3540 --- [           main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@6587c92f: startup date [Thu May 19 23:21:52 EEST 2016]; root of context hierarchy
+2016-05-19 23:21:54.505  INFO 3540 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/inventory/plants/{id}],methods=[GET]}" onto public com.rentit.inventory.application.dto.PlantInventoryEntryDTO com.rentit.inventory.rest.PlantInventoryEntryRestController.show(java.lang.Long) throws com.rentit.common.application.exceptions.PlantNotFoundException
+2016-05-19 23:21:54.505  INFO 3540 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/inventory/plants/available/{id}],methods=[POST]}" onto public java.lang.Boolean com.rentit.inventory.rest.PlantInventoryEntryRestController.checkIfPlantIsAvailable(java.lang.Long,com.rentit.common.application.dto.BusinessPeriodDTO) throws java.lang.Exception
+2016-05-19 23:21:54.505  INFO 3540 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/inventory/plants],methods=[GET]}" onto public java.util.List<com.rentit.inventory.application.dto.PlantInventoryEntryDTO> com.rentit.inventory.rest.PlantInventoryEntryRestController.findAvailablePlants(java.util.Optional<java.lang.String>,java.util.Optional<java.time.LocalDate>,java.util.Optional<java.time.LocalDate>)
+2016-05-19 23:21:54.506  INFO 3540 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/rentit/invoice/orders],methods=[GET]}" onto public java.util.List<com.rentit.sales.application.dto.PurchaseOrderDTO> com.rentit.sales.rest.InvoiceRestController.listOrders(org.springframework.ui.Model)
+2016-05-19 23:21:54.507  INFO 3540 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/rentit/invoice/sendInvoice],methods=[POST]}" onto public java.lang.String com.rentit.sales.rest.InvoiceRestController.sendInvoice(com.rentit.sales.application.dto.InvoiceEmailDTO) throws java.lang.Exception
+2016-05-19 23:21:54.511  INFO 3540 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/sales/orders/{oid}/extensions/{eid}/accept],methods=[POST]}" onto public com.rentit.sales.application.dto.PurchaseOrderDTO com.rentit.sales.rest.PurchaseOrderRestController.acceptPurchaseOrderExtension(java.lang.Long,java.lang.Long) throws java.lang.Exception
+2016-05-19 23:21:54.511  INFO 3540 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/sales/orders/{id}/cancel],methods=[DELETE]}" onto public com.rentit.sales.application.dto.PurchaseOrderDTO com.rentit.sales.rest.PurchaseOrderRestController.purchaseOrderCancel(java.lang.Long) throws java.lang.Exception
+2016-05-19 23:21:54.512  INFO 3540 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/sales/orders/{id}],methods=[DELETE]}" onto public com.rentit.sales.application.dto.PurchaseOrderDTO com.rentit.sales.rest.PurchaseOrderRestController.deletePurchaseOrder(java.lang.Long) throws java.lang.Exception
+2016-05-19 23:21:54.512  INFO 3540 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/sales/orders/{oid}/extensions/{eid}/accept],methods=[DELETE]}" onto public com.rentit.sales.application.dto.PurchaseOrderDTO com.rentit.sales.rest.PurchaseOrderRestController.rejectPurchaseOrderExtension(java.lang.Long,java.lang.Long) throws java.lang.Exception
+2016-05-19 23:21:54.513  INFO 3540 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/sales/orders/{id}],methods=[GET]}" onto public com.rentit.sales.application.dto.PurchaseOrderDTO com.rentit.sales.rest.PurchaseOrderRestController.showPurchaseOrder(java.lang.Long) throws java.lang.Exception
+2016-05-19 23:21:54.514  INFO 3540 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/sales/orders/{id}],methods=[PUT]}" onto public com.rentit.sales.application.dto.PurchaseOrderDTO com.rentit.sales.rest.PurchaseOrderRestController.reSubmitPurchaseOrder(com.rentit.inventory.application.dto.PlantInventoryEntryDTO,com.rentit.common.domain.model.BusinessPeriod) throws java.lang.Exception
+2016-05-19 23:21:54.514  INFO 3540 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/sales/orders],methods=[POST]}" onto public org.springframework.http.ResponseEntity<com.rentit.sales.application.dto.PurchaseOrderDTO> com.rentit.sales.rest.PurchaseOrderRestController.createPurchaseOrder(com.rentit.sales.application.dto.PurchaseOrderDTO) throws java.lang.Exception
+2016-05-19 23:21:54.514  INFO 3540 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/sales/orders],methods=[GET]}" onto public java.util.List<com.rentit.sales.application.dto.PurchaseOrderDTO> com.rentit.sales.rest.PurchaseOrderRestController.getPurchaseOrders()
+2016-05-19 23:21:54.515  INFO 3540 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/sales/orders/{oid}/updatestatus],methods=[POST]}" onto public com.rentit.sales.application.dto.PurchaseOrderDTO com.rentit.sales.rest.PurchaseOrderRestController.purchaseOrderUpdateStatus(java.lang.Long,com.rentit.sales.domain.model.POStatus) throws java.lang.Exception
+2016-05-19 23:21:54.515  INFO 3540 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/sales/orders/{id}/extensions],methods=[POST]}" onto public org.springframework.http.ResponseEntity<com.rentit.sales.application.dto.PurchaseOrderDTO> com.rentit.sales.rest.PurchaseOrderRestController.extendPurchaseOrder(java.lang.Long,com.rentit.common.application.dto.BusinessPeriodDTO) throws java.lang.Exception
+2016-05-19 23:21:54.515  INFO 3540 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/sales/orders/{id}/accept],methods=[POST]}" onto public com.rentit.sales.application.dto.PurchaseOrderDTO com.rentit.sales.rest.PurchaseOrderRestController.acceptPurchaseOrder(java.lang.Long) throws java.lang.Exception
+2016-05-19 23:21:54.516  INFO 3540 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/sales/orders/{id}/accept],methods=[DELETE]}" onto public com.rentit.sales.application.dto.PurchaseOrderDTO com.rentit.sales.rest.PurchaseOrderRestController.rejectPurchaseOrder(java.lang.Long) throws java.lang.Exception
+2016-05-19 23:21:54.519  INFO 3540 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/sales/rentit/orders/call],methods=[GET]}" onto public java.lang.String com.rentit.sales.rest.PurchaseOrderRestControllerRentit.p() throws java.lang.Exception
+2016-05-19 23:21:54.519  INFO 3540 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/sales/rentit/orders/{oid}/extensions/{eid}/accept],methods=[POST]}" onto public com.rentit.sales.application.dto.PurchaseOrderDTO com.rentit.sales.rest.PurchaseOrderRestControllerRentit.acceptPurchaseOrderExtension(java.lang.Long,java.lang.Long) throws java.lang.Exception
+2016-05-19 23:21:54.520  INFO 3540 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/sales/rentit/orders/{oid}/cancel],methods=[GET]}" onto public com.rentit.sales.application.dto.PurchaseOrderDTO com.rentit.sales.rest.PurchaseOrderRestControllerRentit.purchaseOrderCancel(java.lang.Long) throws java.lang.Exception
+2016-05-19 23:21:54.520  INFO 3540 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/sales/rentit/orders/{id}],methods=[DELETE]}" onto public com.rentit.sales.application.dto.PurchaseOrderDTO com.rentit.sales.rest.PurchaseOrderRestControllerRentit.deletePurchaseOrder(java.lang.Long) throws java.lang.Exception
+2016-05-19 23:21:54.521  INFO 3540 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/sales/rentit/orders/{oid}/extensions/{eid}/accept],methods=[DELETE]}" onto public com.rentit.sales.application.dto.PurchaseOrderDTO com.rentit.sales.rest.PurchaseOrderRestControllerRentit.rejectPurchaseOrderExtension(java.lang.Long,java.lang.Long) throws java.lang.Exception
+2016-05-19 23:21:54.521  INFO 3540 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/sales/rentit/orders/{id}],methods=[GET]}" onto public com.rentit.sales.application.dto.PurchaseOrderDTO com.rentit.sales.rest.PurchaseOrderRestControllerRentit.showPurchaseOrder(java.lang.Long) throws java.lang.Exception
+2016-05-19 23:21:54.521  INFO 3540 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/sales/rentit/orders],methods=[GET]}" onto public java.util.List<com.rentit.sales.application.dto.PurchaseOrderDTO> com.rentit.sales.rest.PurchaseOrderRestControllerRentit.getPurchaseOrders()
+2016-05-19 23:21:54.522  INFO 3540 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/sales/rentit/orders/{oid}/updatestatus],methods=[POST]}" onto public com.rentit.sales.application.dto.PurchaseOrderDTO com.rentit.sales.rest.PurchaseOrderRestControllerRentit.purchaseOrderUpdateStatus(java.lang.Long,com.rentit.sales.domain.model.POStatus) throws java.lang.Exception
+2016-05-19 23:21:54.522  INFO 3540 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/sales/rentit/orders/{id}/accept],methods=[POST]}" onto public com.rentit.sales.application.dto.PurchaseOrderDTO com.rentit.sales.rest.PurchaseOrderRestControllerRentit.acceptPurchaseOrder(java.lang.Long) throws java.lang.Exception
+2016-05-19 23:21:54.523  INFO 3540 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/sales/rentit/orders/{id}/accept],methods=[DELETE]}" onto public com.rentit.sales.application.dto.PurchaseOrderDTO com.rentit.sales.rest.PurchaseOrderRestControllerRentit.rejectPurchaseOrder(java.lang.Long) throws java.lang.Exception
+2016-05-19 23:21:54.525  INFO 3540 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/dashboard/catalog/query],methods=[POST]}" onto public java.lang.String com.rentit.sales.web.DashboardController.queryPlantCatalog(org.springframework.ui.Model,com.rentit.sales.web.CatalogQueryDTO)
+2016-05-19 23:21:54.525  INFO 3540 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/dashboard/orders/{id}],methods=[GET]}" onto public java.lang.String com.rentit.sales.web.DashboardController.showPurchaseOrder(org.springframework.ui.Model,java.lang.Long)
+2016-05-19 23:21:54.525  INFO 3540 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/dashboard/orders],methods=[POST]}" onto public java.lang.String com.rentit.sales.web.DashboardController.createPurchaseOrder(org.springframework.ui.Model,com.rentit.sales.application.dto.PurchaseOrderDTO) throws java.lang.Exception
+2016-05-19 23:21:54.525  INFO 3540 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/dashboard/catalog/form],methods=[GET]}" onto public java.lang.String com.rentit.sales.web.DashboardController.getQueryForm(org.springframework.ui.Model)
+2016-05-19 23:21:54.526  INFO 3540 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoice/orders],methods=[GET]}" onto public java.lang.String com.rentit.sales.web.InvoiceController.listOrders(org.springframework.ui.Model)
+2016-05-19 23:21:54.526  INFO 3540 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invoice/sendInvoice],methods=[POST]}" onto public java.lang.String com.rentit.sales.web.InvoiceController.sendInvoice(com.rentit.sales.application.dto.InvoiceEmailDTO) throws java.lang.Exception
+2016-05-19 23:21:54.528  INFO 3540 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2016-05-19 23:21:54.528  INFO 3540 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2016-05-19 23:21:54.555  INFO 3540 --- [           main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-05-19 23:21:54.555  INFO 3540 --- [           main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-05-19 23:21:54.588  INFO 3540 --- [           main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-05-19 23:21:54.914  INFO 3540 --- [           main] b.a.s.AuthenticationManagerConfiguration : 
+
+Using default security password: 2ddf88e6-27eb-428a-a3e1-7dd674387c07
+
+2016-05-19 23:21:54.920  INFO 3540 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: Ant [pattern='/css/**'], []
+2016-05-19 23:21:54.920  INFO 3540 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: Ant [pattern='/js/**'], []
+2016-05-19 23:21:54.920  INFO 3540 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: Ant [pattern='/images/**'], []
+2016-05-19 23:21:54.920  INFO 3540 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: Ant [pattern='/**/favicon.ico'], []
+2016-05-19 23:21:54.920  INFO 3540 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: Ant [pattern='/error'], []
+2016-05-19 23:21:54.966  INFO 3540 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: Ant [pattern='/h2-console/**'], [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@205b3a1a, org.springframework.security.web.context.SecurityContextPersistenceFilter@4c32d208, org.springframework.security.web.header.HeaderWriterFilter@16209621, org.springframework.security.web.authentication.logout.LogoutFilter@6f475ede, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@353f73ac, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@61df07d0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@735c0454, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@447f9a09, org.springframework.security.web.session.SessionManagementFilter@6e9e4332, org.springframework.security.web.access.ExceptionTranslationFilter@5b0af511, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5af6378e]
+2016-05-19 23:21:54.975  INFO 3540 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/**']]], [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5af410a1, org.springframework.security.web.context.SecurityContextPersistenceFilter@1bd7dd4a, org.springframework.security.web.header.HeaderWriterFilter@64027866, org.springframework.security.web.authentication.logout.LogoutFilter@1e5259c0, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@3b4aeacd, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@bbe07e5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7c089fbc, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4c12e25d, org.springframework.security.web.session.SessionManagementFilter@46b4819c, org.springframework.security.web.access.ExceptionTranslationFilter@44ba9865, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@189d8bef]
+2016-05-19 23:21:55.176  INFO 3540 --- [           main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 0
+2016-05-19 23:21:55.176  INFO 3540 --- [           main] ProxyFactoryBean$MethodInvocationGateway : started invoiceGateway
+2016-05-19 23:21:55.176  INFO 3540 --- [           main] GatewayCompletableFutureProxyFactoryBean : started invoiceGateway
+2016-05-19 23:21:55.177  INFO 3540 --- [           main] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2016-05-19 23:21:55.177  INFO 3540 --- [           main] o.s.i.channel.PublishSubscribeChannel    : Channel 'application:test:-1.errorChannel' has 1 subscriber(s).
+2016-05-19 23:21:55.177  INFO 3540 --- [           main] o.s.i.endpoint.EventDrivenConsumer       : started _org.springframework.integration.errorLogger
+2016-05-19 23:21:55.177  INFO 3540 --- [           main] o.s.i.endpoint.EventDrivenConsumer       : Adding {mail:outbound-channel-adapter} as a subscriber to the 'sendInvoiceChannel' channel
+2016-05-19 23:21:55.177  INFO 3540 --- [           main] o.s.integration.channel.DirectChannel    : Channel 'application:test:-1.sendInvoiceChannel' has 1 subscriber(s).
+2016-05-19 23:21:55.177  INFO 3540 --- [           main] o.s.i.endpoint.EventDrivenConsumer       : started org.springframework.integration.config.ConsumerEndpointFactoryBean#0
+2016-05-19 23:21:55.185  INFO 3540 --- [           main] c.r.sales.rest.SalesRestControllerTests  : Started SalesRestControllerTests in 3.005 seconds (JVM running for 25.519)
+2016-05-19 23:21:55.194  INFO 3540 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : Executing SQL script from class path resource [com/rentit/sales/rest/plants-dataset.sql]
+2016-05-19 23:21:55.199  INFO 3540 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : Executed SQL script from class path resource [com/rentit/sales/rest/plants-dataset.sql] in 4 ms.
+2016-05-19 23:21:55.200  INFO 3540 --- [           main] o.s.b.test.SpringBootMockServletContext  : Initializing Spring FrameworkServlet ''
+2016-05-19 23:21:55.200  INFO 3540 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
+2016-05-19 23:21:55.223  INFO 3540 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 23 ms
+]]></system-out>
+  </testcase>
+</testsuite>
