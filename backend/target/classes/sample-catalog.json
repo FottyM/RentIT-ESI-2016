@@ -278,6 +278,19 @@
     "total": 1000
   },
   {
+    "_class": "com.rentit.sales.domain.model.PurchaseOrder",
+    "id": 4,
+    "plant": 7,
+    "rentalPeriod": {
+      "startDate": "2016-03-08",
+      "endDate": "2016-05-14"
+    },
+    "status": "OPEN",
+    "contactEmail": "agabaisaacsoftwares@gmail.com",
+    "total": 1000
+  }
+  ,
+  {
     "_class": "com.rentit.sales.domain.model.PurchaseOrderExtension",
     "id": 1,
     "purchaseOrder": 1,
@@ -297,4 +310,5 @@
     },
     "status": "PENDING"
   }
+
 ]

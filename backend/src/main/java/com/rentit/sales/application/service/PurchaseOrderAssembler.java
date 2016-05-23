@@ -87,11 +87,11 @@ public class PurchaseOrderAssembler extends ResourceAssemblerSupport<PurchaseOrd
 
 
 
-                       dto.add(new ExtendedLink(
-
-                            linkTo(methodOn(PurchaseOrderRestController.class)
-                                    .purchaseOrderCancel(purchaseOrder.getId().getId())).toString(),
-                            "cancel",GET));
+//                       dto.add(new ExtendedLink(
+//
+//                            linkTo(methodOn(PurchaseOrderRestController.class)
+//                                    .purchaseOrderCancel(purchaseOrder.getId().getId())).toString(),
+//                            "cancel",GET));
 
                     if (userType.equals(UserType.RENTIT)){
 
@@ -134,7 +134,11 @@ public class PurchaseOrderAssembler extends ResourceAssemblerSupport<PurchaseOrd
 
 
                     break;
-                case REJECTED:
+                case PENDING_EXTENSION:
+
+
+
+
 
                     break;
                 case DELIVERED:
