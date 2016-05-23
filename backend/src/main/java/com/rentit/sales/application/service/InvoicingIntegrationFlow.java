@@ -21,6 +21,9 @@ public class InvoicingIntegrationFlow {
     String gmailPassword;
     @Bean
     IntegrationFlow sendInvoiceFlow() {
+
+
+
         return IntegrationFlows.from("sendInvoiceChannel")
                 .handle(Mail.outboundAdapter("smtp.gmail.com")
                         .port(465)

@@ -1,0 +1,25 @@
+-------------------------------------------------------------------------------
+Test set: com.rentit.sales.rest.PurchaseOrderRestControllerTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 3.295 sec <<< FAILURE! - in com.rentit.sales.rest.PurchaseOrderRestControllerTests
+testPurchaseOrderAcceptance(com.rentit.sales.rest.PurchaseOrderRestControllerTests)  Time elapsed: 0.386 sec  <<< ERROR!
+com.fasterxml.jackson.databind.JsonMappingException: Can not deserialize instance of java.util.ArrayList out of START_OBJECT token
+ at [Source: [{"name":"Mini excavator","description":"1.5 Tonne Mini excavator","price":150.00,"_links":{"self":{"href":"http://localhost/api/inventory/plants/1"}},"_xlinks":[]},{"name":"Midi excavator","description":"5 Tonne Midi excavator","price":250.00,"_links":{"self":{"href":"http://localhost/api/inventory/plants/3"}},"_xlinks":[]},{"name":"Maxi excavator","description":"15 Tonne Large excavator","price":400.00,"_links":{"self":{"href":"http://localhost/api/inventory/plants/5"}},"_xlinks":[]},{"name":"Maxi excavator","description":"20 Tonne Large excavator","price":450.00,"_links":{"self":{"href":"http://localhost/api/inventory/plants/6"}},"_xlinks":[]},{"name":"Midi excavator","description":"8 Tonne Midi excavator","price":300.00,"_links":{"self":{"href":"http://localhost/api/inventory/plants/4"}},"_xlinks":[]}]; line: 1, column: 82] (through reference chain: java.util.ArrayList[0]->com.rentit.inventory.application.dto.PlantInventoryEntryDTO["_links"])
+	at com.fasterxml.jackson.databind.JsonMappingException.from(JsonMappingException.java:148)
+	at com.fasterxml.jackson.databind.DeserializationContext.mappingException(DeserializationContext.java:857)
+	at com.fasterxml.jackson.databind.DeserializationContext.mappingException(DeserializationContext.java:853)
+	at com.fasterxml.jackson.databind.deser.std.CollectionDeserializer.handleNonArray(CollectionDeserializer.java:292)
+	at com.fasterxml.jackson.databind.deser.std.CollectionDeserializer.deserialize(CollectionDeserializer.java:227)
+	at com.fasterxml.jackson.databind.deser.std.CollectionDeserializer.deserialize(CollectionDeserializer.java:217)
+	at com.fasterxml.jackson.databind.deser.std.CollectionDeserializer.deserialize(CollectionDeserializer.java:25)
+	at com.fasterxml.jackson.databind.deser.SettableBeanProperty.deserialize(SettableBeanProperty.java:520)
+	at com.fasterxml.jackson.databind.deser.impl.MethodProperty.deserializeAndSet(MethodProperty.java:95)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:258)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:125)
+	at com.fasterxml.jackson.databind.deser.std.CollectionDeserializer.deserialize(CollectionDeserializer.java:245)
+	at com.fasterxml.jackson.databind.deser.std.CollectionDeserializer.deserialize(CollectionDeserializer.java:217)
+	at com.fasterxml.jackson.databind.deser.std.CollectionDeserializer.deserialize(CollectionDeserializer.java:25)
+	at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:3736)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:2745)
+	at com.rentit.sales.rest.PurchaseOrderRestControllerTests.testPurchaseOrderAcceptance(PurchaseOrderRestControllerTests.java:84)
+

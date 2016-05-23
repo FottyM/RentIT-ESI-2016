@@ -1,0 +1,13 @@
+insert into maintenance_task (id, type_of_work, price) values (100, 'CORRECTIVE', 200);
+insert into maintenance_task (id, type_of_work, price) values (101, 'CORRECTIVE', 200);
+insert into maintenance_task (id, type_of_work, price) values (102, 'CORRECTIVE', 100);
+insert into maintenance_task (id, type_of_work, price) values (103, 'CORRECTIVE', 200);
+insert into maintenance_task (id, type_of_work, price) values (104, 'CORRECTIVE', 200);
+insert into maintenance_plan (id, year_of_action) values (1, 2014);
+insert into maintenance_plan (id, year_of_action) values (2, 2015);
+insert into maintenance_plan (id, year_of_action) values (3, 2016);
+insert into maintenance_plan_tasks (maintenance_plan_id, task_id) values (1, 100);
+insert into maintenance_plan_tasks (maintenance_plan_id, task_id) values (1, 101);
+insert into maintenance_plan_tasks (maintenance_plan_id, task_id) values (1, 102);
+insert into maintenance_plan_tasks (maintenance_plan_id, task_id) values (2, 103);
+insert into maintenance_plan_tasks (maintenance_plan_id, task_id) values (2, 104);

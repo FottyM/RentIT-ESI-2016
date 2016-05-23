@@ -4,6 +4,7 @@ import {Observable} from 'rxjs/Rx';
 
 import {Plant, Query} from './declarations';
 import {XLink, Invoice} from "../orders/purchase-order-listing.component";
+import {rentit} from "../Configuration";
 
 @Injectable()
 export class RentitService {
@@ -16,13 +17,13 @@ export class RentitService {
         var headers = new Headers();
         headers.append('Content-type', 'application/json');
 
-        this.http.post("http://localhost:8090/api/rentit/invoice/sendInvoice/", JSON.stringify({"poId":invoice.poId,"email":invoice.email,"total":invoice.total}), new RequestOptions({headers: headers}))
+        this.http.post(rentit+"/api/rentit/invoice/sendInvoice/", JSON.stringify({"poId":invoice.poId,"email":invoice.email,"total":invoice.total}), new RequestOptions({headers: headers}))
             .subscribe(response => {
-           console.log("yes")
 
+                 alert("success invoice sent")
                 },
                 error => {
-                    this.extension = "Rejected";
+                    alert("error")
 
 
                 });

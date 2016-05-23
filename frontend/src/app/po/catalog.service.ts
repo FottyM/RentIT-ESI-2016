@@ -4,6 +4,7 @@ import {Observable} from 'rxjs/Rx';
 
 import {Plant, Query} from './declarations';
 import {XLink} from "../orders/purchase-order-listing.component";
+import {rentit} from "../Configuration"
 
 @Injectable()
 export class PlantCatalogService {
@@ -27,8 +28,7 @@ export class PlantCatalogService {
             this.http.post(url.href, JSON.stringify(url._rel), new RequestOptions({headers: headers}))
                 .subscribe(response => {
 
-                        var x = response.json();
-                        this.extension = x.status.response;
+                       window.location("/orders")
 
                     },
                     error => {
@@ -68,7 +68,7 @@ else{
                this.http.delete(url.href)
                 .subscribe(response =>{
                     var x = response.json();
-                    this.extension = x.status.response;
+                    window.location("/orders")
                 });
         }
         else if(url.method=="GET"){

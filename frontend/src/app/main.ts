@@ -22,7 +22,7 @@ import {PHRListingComponent} from "./po/po-invoice";
       <a [routerLink]="['POListing']">List all POs</a>
       
     </nav>
-    <h1> WELCOME TO BUILD IT</h1>
+    <h1> WELCOME TO RENTIT IT</h1>
     
     <router-outlet></router-outlet>
   `
@@ -32,7 +32,9 @@ import {PHRListingComponent} from "./po/po-invoice";
   new Route({path: '/orders', name: 'POListing', component: POListingComponent}),
   new Route({path: '/invoices', name: 'PInvoice', component: PHRListingComponent}),
 ])
-export class AppComponent {    
+export class AppComponent {
+
+  
 }
 
 bootstrap(AppComponent, [HTTP_BINDINGS, ROUTER_PROVIDERS, PlantCatalogService,RentitService]);
