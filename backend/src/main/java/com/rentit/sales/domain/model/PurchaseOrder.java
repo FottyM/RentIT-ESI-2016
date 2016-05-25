@@ -45,6 +45,7 @@ public class PurchaseOrder {
     @AttributeOverrides({@AttributeOverride(name="id", column=@Column(name="extension_id"))})
     List<PurchaseOrderExtensionID> extensions = new ArrayList<>();
     String contactEmail;
+     int paid=0 ;
 
 
 
@@ -81,6 +82,10 @@ public class PurchaseOrder {
     }
     public void setStatus(POStatus status) {
         this.status=status;
+
+    }
+    public void setPayment() {
+        this. paid=1;
 
     }
 }

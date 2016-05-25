@@ -11,11 +11,9 @@ import com.rentit.inventory.domain.model.PlantInventoryEntry;
 import com.rentit.inventory.domain.model.PlantReservation;
 import com.rentit.common.application.exceptions.PlantNotFoundException;
 import com.rentit.inventory.domain.model.PlantReservationID;
+import com.rentit.sales.application.dto.InvoiceDTO;
 import com.rentit.sales.application.dto.PurchaseOrderDTO;
-import com.rentit.sales.domain.model.Invoice;
-import com.rentit.sales.domain.model.POStatus;
-import com.rentit.sales.domain.model.PurchaseOrder;
-import com.rentit.sales.domain.model.PurchaseOrderID;
+import com.rentit.sales.domain.model.*;
 import com.rentit.sales.domain.repository.InvoiceRepository;
 import com.rentit.sales.domain.repository.PurchaseOrderExtensionRepository;
 import com.rentit.sales.domain.repository.PurchaseOrderRepository;
@@ -208,4 +206,26 @@ public class SalesService {
     public Long getLastExtensionId(PurchaseOrderID purchaseOrderID){
         return purchaseOrderExtensionRepository.getLastExtension(purchaseOrderID);
     }
+
+    public  boolean invoiceSent(Long poId){
+
+        PurchaseOrder purchaseOrder = purchaseOrderRepository.findOne(PurchaseOrderID.of(poId));
+
+             purchaseOrder.setPayment();
+          PurchaseOrder purchaseOrder1 = purchaseOrderRepository.save(purchaseOrder);
+
+        if (purchaseOrder1.getPaid()==1)
+        {
+            return  true;
+        }
+          else {
+            return  false;
+        }
+
+
+
+
+
+    }
+
 }

@@ -23,7 +23,6 @@ public class InvoicingIntegrationFlow {
     IntegrationFlow sendInvoiceFlow() {
 
 
-
         return IntegrationFlows.from("sendInvoiceChannel")
                 .handle(Mail.outboundAdapter("smtp.gmail.com")
                         .port(465)

@@ -30,6 +30,8 @@ public class QPurchaseOrder extends EntityPathBase<PurchaseOrder> {
 
     public final DatePath<java.time.LocalDate> issueDate = createDate("issueDate", java.time.LocalDate.class);
 
+    public final NumberPath<Integer> paid = createNumber("paid", Integer.class);
+
     public final DatePath<java.time.LocalDate> paymentSchedule = createDate("paymentSchedule", java.time.LocalDate.class);
 
     public final com.rentit.inventory.domain.model.QPlantInventoryEntryID plant;

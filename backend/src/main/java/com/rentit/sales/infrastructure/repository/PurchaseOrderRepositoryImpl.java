@@ -109,7 +109,7 @@ public class PurchaseOrderRepositoryImpl implements CustomPurchaseOrderRepositor
     public List<PurchaseOrder> findOrdersThatNeedInvoice() {
         return new  JPAQuery(em)
                 .from(qpurchaseOrder)
-                .where(qpurchaseOrder.status.eq(POStatus.CLOSED)).distinct().list(qpurchaseOrder);
+                .where(qpurchaseOrder.status.eq(POStatus.CLOSED).and(qpurchaseOrder.paid.eq(0))).distinct().list(qpurchaseOrder);
     }
 
     @Override

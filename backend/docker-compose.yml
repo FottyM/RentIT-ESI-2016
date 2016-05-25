@@ -1,11 +1,29 @@
+builditfront:
+    image: akaiz/buildit:2
+    ports:
+      - "8001:8001"
+    links:
+      - buildit
+buildit:
+  image: akaiz/builditservice:2
+  ports:
+    - "8080:8080"
+  links:
+    - postgres
+    - rentit
+  environment:
+    POSTGRES: postgres
+    POSTGRES_USERNAME: postgres
+    POSTGRES_PASSWORD: mysecretword
+
 frontend:
-    image: akaiz/rentit:1
+    image: akaiz/rentit:2
     ports:
       - "8000:8000"
     links:
       - rentit
 rentit:
-  image: akaiz/rentitservice:1
+  image: akaiz/rentitservice:2
   ports:
     - "8090:8090"
   links:
