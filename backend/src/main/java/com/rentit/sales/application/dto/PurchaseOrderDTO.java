@@ -16,12 +16,10 @@ import java.util.List;
 @Data
 @NoArgsConstructor(force = true)
 public class PurchaseOrderDTO extends ResourceSupport {
-  //  Long _id;
     PlantInventoryEntryDTO plant;
     BusinessPeriodDTO rentalPeriod;
     BigDecimal total;
     POStatus status;
     String email;
     List<PurchaseOrderExtensionID>extensions;
-
 }
