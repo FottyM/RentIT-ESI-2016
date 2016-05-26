@@ -16,15 +16,67 @@ import {PHRListingComponent} from "./po/po-invoice";
   selector: 'app',
   directives: [ROUTER_DIRECTIVES],
   template: `
-    <nav>
+    
       
-       <a [routerLink]="['PInvoice']">Invoice</a>
-      <a [routerLink]="['POListing']">List all POs</a>
+    
+    <div id="sb-site">
+
+
+    
+    <div id="page-wrapper" >
+
+        <div id="page-sidebar" style="height: 100%">
+            <div id="header-logo" class="logo-bg"><a href="index-2.html" class="logo-content-big" title="DelightUI">Rentit </a>
+            </div>
+
+
+            <!--    header-->
+
+
+
+            <div class="scroll-sidebar">
+                <ul id="sidebar-menu">
+                    <li class="header"><span>Menu Items</span>
+                    </li>
+                  
+                    <li>   <a [routerLink]="['PInvoice']"><i class="glyph-icon icon-linecons-diamond"></i> <span>Invoice</span></a></li>
+                     <li>   <a [routerLink]="['POListing']"><i class="glyph-icon icon-linecons-diamond"></i> <span>Purchase Orders</span></a></li>
+                    
+
+
+
+
+                </ul>
+            </div>
+        </div>
+
+
+
+        <!--   body  -->
+        <div id="page-content-wrapper">
+            <div id="page-content"  style="margin-left: 10%">
+
+
+    
+  
+    
+
+                <div id="page-title">
+           
+          <nav>
       
+           
     </nav>
-    <h1> WELCOME TO RENTIT IT</h1>
+    <h1> WELCOME TO RENTIT </h1>
     
     <router-outlet></router-outlet>
+                </div>
+
+            </div>
+        </div>
+    </div>
+   
+</div>
   `
 })
 @RouteConfig([

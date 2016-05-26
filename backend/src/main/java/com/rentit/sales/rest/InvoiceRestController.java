@@ -65,6 +65,12 @@ public class InvoiceRestController {
 
         helper.addAttachment("invoice-po-"+po.getPoId()+".xml", new ByteArrayDataSource(invoice1, "application/xml"));
         invoiceGateway.sendInvoice(rootMessage);
+
+        if(salesService.invoiceSent(po.getPoId()))
+        {
+
+        }
+
         return "sent";
     }
 

@@ -16,7 +16,7 @@ import java.util.regex.Pattern;
 /**
  * Created by rain on 27.04.16.
  */
-@Service
+//@Service
 public class RemittanceAdviceProcessor {
  @Autowired
    SalesService salesService;
