@@ -1,0 +1,27 @@
+  <table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th class="text-center">Plant</th>
+            <th class="text-center">Start date</th>
+            <th class="text-center">End date</th>
+            <th class="text-center">Total</th>
+            <th class="text-center">email</th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="#order of orders">
+            <td>
+                {{order.plant.name}}
+
+            </td>
+
+            <td>{{order.rentalPeriod.startDate}}</td>
+            <td>{{order.rentalPeriod.endDate}}</td>
+            <td class='text-right'>{{order.total | number:'.2'}}</td>
+            <td class='text-left'>{{order.email}}</td>
+
+        </tr>
+    </tbody>
+</table>

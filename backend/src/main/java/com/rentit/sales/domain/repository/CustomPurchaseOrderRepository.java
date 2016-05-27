@@ -16,6 +16,7 @@ public interface CustomPurchaseOrderRepository  {
     public PurchaseOrder deletePurchaseOrder(Long id);
     public PurchaseOrder extendPurchaseOrderConfirmation(POStatus poStatus,Long oid, Long eid);
     public List<PurchaseOrder> findOrdersThatNeedInvoice();
+    public List<PurchaseOrder> findOrdersThatArePaid();
     public PurchaseOrder updatePurchaseOrderStatus(Long id,POStatus poStatus);
     public PurchaseOrder cancelPurchaseOrder(Long id);
 

@@ -1,0 +1,53 @@
+{
+  "project": "rentitservice",
+  "services": [
+    {
+      "id": "rentitserver",
+      "apps": [
+        {
+          "env": {
+            "POSTGRES_PORT_5432_TCP_ADDR": "postgres.database.rentitservice",
+            "POSTGRES_PORT_5432_TCP_PORT": "5432",
+            "POSTGRES_USERNAME": "postgres",
+            "POSTGRES_PASSWORD": "mysecretword"
+          },
+          "domain": {
+            "uri": "akaiz.sloppy.zone"
+          },
+          "mem": 900,
+          "image": "akaiz/rentitservicesloopy:1",
+          "instances": 1,
+          "dependencies": [
+            "../../database/postgres"
+          ],
+          "id": "app",
+          "health_checks": [],
+          "volumes": [],
+          "port_mappings": [
+            {
+              "container_port": 8090,
+              "protocol": "tcp"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "database",
+      "apps": [
+        {
+          "env": {
+            "POSTGRES_PASSWORD": "mysecretword",
+            "POSTGRES_USERNAME": "postgres"
+          },
+          "mem": 100,
+          "image": "postgres",
+          "instances": 1,
+          "id": "postgres",
+          "health_checks": [],
+          "volumes": []
+        }
+      ]
+    }
+  ]
+}

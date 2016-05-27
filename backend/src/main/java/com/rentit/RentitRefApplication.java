@@ -36,8 +36,8 @@ import java.util.List;
 
 @EntityScan(basePackageClasses = { RentitRefApplication.class, Jsr310JpaConverters.class })
 @SpringBootApplication
-//@Component
-//@IntegrationComponentScan
+@Component
+@IntegrationComponentScan
 @EnableHypermediaSupport(type = EnableHypermediaSupport.HypermediaType.HAL)
 public class RentitRefApplication {
 

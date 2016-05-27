@@ -10,7 +10,7 @@ import {RentitService} from './po/rentit-service';
 import {PlantCatalogService} from './po/catalog.service';
 
 import {PHRListingComponent} from "./po/po-invoice";
-
+import {PAIDListingComponent} from "./po/pa-invoice";
 
 @Component({
   selector: 'app',
@@ -38,9 +38,10 @@ import {PHRListingComponent} from "./po/po-invoice";
                 <ul id="sidebar-menu">
                     <li class="header"><span>Menu Items</span>
                     </li>
-                  
-                    <li>   <a [routerLink]="['PInvoice']"><i class="glyph-icon icon-linecons-diamond"></i> <span>Invoice</span></a></li>
                      <li>   <a [routerLink]="['POListing']"><i class="glyph-icon icon-linecons-diamond"></i> <span>Purchase Orders</span></a></li>
+                    <li>   <a [routerLink]="['PInvoice']"><i class="glyph-icon icon-linecons-diamond"></i> <span>Invoice</span></a></li>
+                    <li>   <a [routerLink]="['PAInvoice']"><i class="glyph-icon icon-linecons-diamond"></i> <span>Paid Invoice</span></a></li>
+                     
                     
 
 
@@ -83,6 +84,7 @@ import {PHRListingComponent} from "./po/po-invoice";
 
   new Route({path: '/orders', name: 'POListing', component: POListingComponent}),
   new Route({path: '/invoices', name: 'PInvoice', component: PHRListingComponent}),
+  new Route({path: '/invoicespaid', name: 'PAInvoice', component: PAIDListingComponent})
 ])
 export class AppComponent {
 

@@ -170,6 +170,16 @@ public class PurchaseOrderRestController {
         return poDTO;
     }
 
+    @RequestMapping(method = GET, path = "/{id}/payment")
+    public boolean paymentRecived(@PathVariable Long id) throws Exception {
+      if(salesService.paymentRecievied(id)){
+          return true;
+      }
+        else {
+          return  false;
+      }
+
+    }
     @ExceptionHandler(BindException.class)
     @ResponseStatus(HttpStatus.PRECONDITION_FAILED)
     public String bindExceptionHandler(Exception ex) {

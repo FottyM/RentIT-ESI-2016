@@ -1,11 +1,11 @@
 builditfront:
-    image: akaiz/builditapp:2
+    image: akaiz/buildit:1
     ports:
       - "8001:8001"
     links:
       - buildit
 buildit:
-  image: akaiz/builditservice:3
+  image: akaiz/builditservice:1
   ports:
     - "8080:8080"
   links:
@@ -17,13 +17,13 @@ buildit:
     POSTGRES_PASSWORD: mysecretword
 
 frontend:
-    image: akaiz/rentit:2
+    image: akaiz/rentit:1
     ports:
       - "8000:8000"
     links:
       - rentit
 rentit:
-  image: akaiz/rentitservice:2
+  image: akaiz/rentitservice:1
   ports:
     - "8090:8090"
   links:

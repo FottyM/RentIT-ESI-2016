@@ -167,6 +167,16 @@ public class SalesService {
 
         return purchaseOrderDTOs;
     }
+    public List<PurchaseOrderDTO>findPurcahseOrdersThatpaid(){
+        List<PurchaseOrderDTO> purchaseOrderDTOs = new ArrayList<PurchaseOrderDTO>();
+        for (PurchaseOrder purchaseOrder:purchaseOrderRepository.findOrdersThatArePaid()
+                ) {
+            purchaseOrderAssembler.setUserType(UserType.RENTIT);
+            purchaseOrderDTOs.add(purchaseOrderAssembler.toResource( purchaseOrder));
+        }
+
+        return purchaseOrderDTOs;
+    }
     public List<PurchaseOrderDTO>findPurcahseOrders(UserType userType){
         List<PurchaseOrderDTO> purchaseOrderDTOs = new ArrayList<PurchaseOrderDTO>();
         for (PurchaseOrder purchaseOrder:purchaseOrderRepository.findAll()
@@ -227,5 +237,28 @@ public class SalesService {
 
 
     }
+
+    public  boolean paymentRecievied(Long poId){
+
+        PurchaseOrder purchaseOrder = purchaseOrderRepository.findOne(PurchaseOrderID.of(poId));
+
+        purchaseOrder.remintanceRecieved();
+        PurchaseOrder purchaseOrder1 = purchaseOrderRepository.save(purchaseOrder);
+
+        if (purchaseOrder1.getRemitance()==1)
+        {
+            return  true;
+        }
+        else {
+            return  false;
+        }
+
+
+
+
+
+    }
+
+
 
 }

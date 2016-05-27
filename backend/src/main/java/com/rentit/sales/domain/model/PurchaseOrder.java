@@ -41,12 +41,13 @@ public class PurchaseOrder {
     @Enumerated(EnumType.STRING)
     POStatus status;
 
+
     @ElementCollection
     @AttributeOverrides({@AttributeOverride(name="id", column=@Column(name="extension_id"))})
     List<PurchaseOrderExtensionID> extensions = new ArrayList<>();
     String contactEmail;
      int paid=0 ;
-
+     int remitance=0;
 
 
 
@@ -86,6 +87,11 @@ public class PurchaseOrder {
     }
     public void setPayment() {
         this. paid=1;
+
+    }
+    public void remintanceRecieved() {
+        this. remitance=1;
+
 
     }
 }

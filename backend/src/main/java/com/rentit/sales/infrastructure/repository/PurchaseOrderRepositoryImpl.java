@@ -113,6 +113,13 @@ public class PurchaseOrderRepositoryImpl implements CustomPurchaseOrderRepositor
     }
 
     @Override
+    public List<PurchaseOrder> findOrdersThatArePaid() {
+        return new  JPAQuery(em)
+                .from(qpurchaseOrder)
+                .where(qpurchaseOrder.remitance.eq(1)).distinct().list(qpurchaseOrder);
+    }
+
+    @Override
     @Transactional
     public PurchaseOrder updatePurchaseOrderStatus(Long id, POStatus poStatus) {
         new JPAUpdateClause(em,qpurchaseOrder)
