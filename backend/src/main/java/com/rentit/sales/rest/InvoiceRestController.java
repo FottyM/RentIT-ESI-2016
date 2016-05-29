@@ -44,6 +44,14 @@ public class InvoiceRestController {
 
        return purchaseOrderDTO;
     }
+    @RequestMapping(method = GET, path = "/orders/paid")
+    public  List<PurchaseOrderDTO>  listOrderspaid(Model model) {
+
+        List<PurchaseOrderDTO> purchaseOrderDTO=salesService.findPurcahseOrdersThatpaid();
+
+
+        return purchaseOrderDTO;
+    }
     @RequestMapping(method = POST, path = "/sendInvoice")
 
     public String sendInvoice(@RequestBody InvoiceEmailDTO po) throws Exception {

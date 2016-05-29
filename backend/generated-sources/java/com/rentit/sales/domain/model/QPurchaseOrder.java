@@ -36,6 +36,8 @@ public class QPurchaseOrder extends EntityPathBase<PurchaseOrder> {
 
     public final com.rentit.inventory.domain.model.QPlantInventoryEntryID plant;
 
+    public final NumberPath<Integer> remitance = createNumber("remitance", Integer.class);
+
     public final com.rentit.common.domain.model.QBusinessPeriod rentalPeriod;
 
     public final ListPath<com.rentit.inventory.domain.model.PlantReservationID, com.rentit.inventory.domain.model.QPlantReservationID> reservations = this.<com.rentit.inventory.domain.model.PlantReservationID, com.rentit.inventory.domain.model.QPlantReservationID>createList("reservations", com.rentit.inventory.domain.model.PlantReservationID.class, com.rentit.inventory.domain.model.QPlantReservationID.class, PathInits.DIRECT2);

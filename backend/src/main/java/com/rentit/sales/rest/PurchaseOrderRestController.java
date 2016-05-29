@@ -5,7 +5,6 @@ import com.rentit.common.domain.model.BusinessPeriod;
 import com.rentit.common.domain.model.UserType;
 import com.rentit.inventory.application.dto.PlantInventoryEntryDTO;
 import com.rentit.sales.application.dto.PurchaseOrderDTO;
-import com.rentit.sales.application.dto.PurchaseOrderDTO2;
 import com.rentit.sales.application.service.SalesService;
 import com.rentit.sales.domain.model.POStatus;
 import com.rentit.sales.domain.model.PurchaseOrderID;
@@ -171,6 +170,16 @@ public class PurchaseOrderRestController {
         return poDTO;
     }
 
+    @RequestMapping(method = GET, path = "/{id}/payment")
+    public boolean paymentRecived(@PathVariable Long id) throws Exception {
+      if(salesService.paymentRecievied(id)){
+          return true;
+      }
+        else {
+          return  false;
+      }
+
+    }
     @ExceptionHandler(BindException.class)
     @ResponseStatus(HttpStatus.PRECONDITION_FAILED)
     public String bindExceptionHandler(Exception ex) {

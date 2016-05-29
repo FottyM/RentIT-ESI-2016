@@ -12,4 +12,11 @@ import javax.mail.internet.MimeMessage;
 public interface InvoiceGateway {
     @Gateway(requestChannel = "sendInvoiceChannel")
  public void  sendInvoice(MimeMessage msg)  ;
+
+
+
+
 }
+
+
+
